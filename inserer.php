@@ -42,40 +42,45 @@
       <div class="container">
          <h4>Formulaire d'insertion de musique</h4>
          <form method="POST" enctype="multipart/form-data" action="">
-            <fieldset>
-               <div class="form-group">
-                  <label for="titre">Titre</label>
-                  <input type="text" class="form-control" id="titre" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="artiste">Artiste</label>
-                  <input type="text" class="form-control" id="artiste" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="album">Album</label>
-                  <input type="text" class="form-control" id="album" placeholder="">
-               </div>
-               <div class="form-group">
-                  <img src="chemindaccesdelimage" id="image1">
-                  <label for="cover_image">Cover</label>
-                  <input type="file" name="cover_image" class="form-control-file" id="cover_image" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="genre">Genre</label>
-                  <input type="text" class="form-control" id="genre" placehorder="">
-               </div>
-               <div class="form-group">
-                  <label for="file_sound">Fichier</label>
-                  <input type="file" name="file_sound" class="form-control" id="file_sound" placeholder="">
-               </div>
-               </div>
-               <div class="container">                
-               <button type="submit" class="btn" style="background-color: #40A497;">Valider</button>
-               <button type="cancel" class="btn" style="background-color: #40A497;">Annuler</button>
-               </div>
-               </div>
-            </fieldset>
-         </form>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="titre">Titre</label>
+                            <input type="text" class="form-control" id="titre" placeholder="">   
+                        </div>
+                        <div class="col">
+                            <label for="artiste">Artiste</label>
+                            <input type="text" class="form-control" id="artiste" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="album">Album</label>
+                            <input type="text" class="form-control" id="album" placeholder="">
+                        </div>
+                        <div class="col">
+                            <label for="genre">Genre</label>
+                            <input type="text" class="form-control" id="genre" placehorder="">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <img src="chemindaccesdelimage" id="image1">
+                            <label for="cover_image">Cover</label>
+                            <input type="file" name="cover_image" class="form-control-file" id="cover_image" placeholder="">
+                        </div>
+                        <div class="col">
+                            <label for="file_sound">Fichier</label>
+                            <input type="file" name="file_sound" class="form-control-file" id="file_sound" placeholder="">
+                        </div>
+                    </div>                 
+                    </div>
+                </form>
+    </div>
+    <div class="container">
+                <form method="POST" enctype="multipart/form-data" action="">                
+                        <button type="submit" class="btn" style="background-color: #40A497;">Valider</button>
+                        <button type="cancel" class="btn" style="background-color: #40A497;">Annuler</button>
+                </form>
       </div>
     </main>
     <footer>
