@@ -20,11 +20,12 @@ try {
             Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             Titre VarCHAR(100) NOT NULL,
             Album VarCHAR(100) NOT NULL,
+            Artiste VarCHAR(100) NOT NULL,
             Genre VarCHAR(30) NOT NULL,
-            Cover_image BLOB NOT NULL,
-            File_sound BLOB NOT NULL )";
+            Cover VarCHAR(255) NOT NULL,
+            Sound Varchar(255) NOT NULL )";
     $connexiondb->exec($sql1);
-    echo 'Table Roles bien créée !<br />';
+    echo 'Table liste Musique bien créée !<br />';
     $connexiondb->commit();
     $connexiondb = null;
 } catch (PDOException $e) {
