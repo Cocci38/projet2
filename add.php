@@ -13,10 +13,10 @@ try {
         $Titre = $_POST['Titre'];
         $Album = $_POST['Album'];
         /* tester la validite des format rentrer--> a faire*/
-        $Cover_image = $_FILES['Cover_image'];
-        $File_sound = $_FILES['File_sound'];
-        $sql3 = "INSERT INTO Musique(Titre,Album,Genre,Cover_image,File_sound)
-                 VALUES($Titre,$Album,$Cover_image,$File_sound)";
+        $Cover = $_FILES['Cover'];
+        $Sound = $_FILES['Sound'];
+        $sql3 = "INSERT INTO Musique(Titre,Album,,Artiste,Genre,Cover_image,File_sound)
+                 VALUES($Titre,$Album,$Cover,$ound)";
         $codb->exec($sql3);
         $codb = null;
 } catch (PDOException $e) {

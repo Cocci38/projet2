@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
     //ogg|mp3|mp4|m4a|wav|wma
     $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
-    // si un fichier maphoto a bien été transféré
+    // si un fichier macover a bien été transféré
     if (is_uploaded_file($_FILES["cover"]["tmp_name"])) {
         $next = select_Max_id() + 1;
         // recupération de l'extension du fichier
@@ -62,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cheminmusique = "/p2/projet2/sound/musique_" . $next . $extension;
         rename($_FILES["sound"]["tmp_name"], $repository . $cheminmusique);
     }
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -81,8 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $Cover = $chemincover;
         $Sound = $cheminmusique;
 
-        $sql3 = "INSERT INTO Musique(titre,album,artiste,genre,cover,sound)
-                        VALUES('" . addslashes($Titre) . "','" . addslashes($Album) . "','" . addslashes($Artiste) . "','" . addslashes($Genre) . "','" . addslashes($Cover) . "','" . addslashes($Sound) . "')";
+        $sql3 =
+        "INSERT INTO Musique(titre,album,artiste,genre,cover,sound)
+                        VALUES(" . addslashes($Titre) . "," . addslashes($Album) . "," . addslashes($Artiste) . "','" . addslashes($Genre) . "," . addslashes($Cover) . "," . addslashes($Sound) . ")";
         $codb->exec($sql3);
         $codb = null;
     } catch (PDOException $e) {
