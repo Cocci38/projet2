@@ -40,54 +40,16 @@
      </nav>
     </header>
     <main>
-    <div class="container">
-    <?php
-    $nbmorceau = 12;
-    echo "<div class='accordion' id='accordionExample'>";
-    for ($compteur = 1; $compteur <= $nbmorceau; $compteur++) {
-
-        if ($compteur == 1) {
-            $btn_class = "accordion-button";
-            $div_class = "accordion-collapse collapse show";
-            $btn_expended = "arial-expended='true'";
-        } else {
-            $btn_class = "accordion-button collapsed";
-            $div_class = "accordion-collapse collapse";
-            $btn_expended = "arial-expended='false'";
-        }
-
-        echo "
-                   <div class='accordion-item'>
-                    <h2 class='accordion-header' id='heading$compteur'>
-                        <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>
-                        Titre de la Musique$compteur
-                        </button>
-                    </h2>
-                    <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
-                        <div class='accordion-body'>
-                        <div class=\"row\">
-                            <div class=\"col-6\">
-                            <p>
-                                <strong>Nom de l'Artiste $compteur</strong>
-                            </p>
-                            </div>
-                            <div class=\"col-6\">
-                            <button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i></button>
-                            </div>
-                        </div>
-                      
-                        </div>
-                    </div>
-                    </div>  
-                    
-            ";
-    }
-    echo "</div>";
-
-    ?>
-    </div>
+        <div class="container">
+            <div class="alert" role="alert">
+                <h4 class="alert-heading ">Liste des morceaux de musique</h4>
+                <p>Voulez-vous vraiment supprimer ce morceau de musique</p>
+                <p><button type="submit" class="btn" style="background-color: #40A497;">Valider</button>
+                <button type="cancel" class="btn" style="background-color: #40A497;">Annuler</button></p>
+            </div>
+        </div>
     </main>
-</body>
+    </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
