@@ -14,7 +14,7 @@
       <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #40A497;">
         <div class="container-fluid">
         <!-- Brand -->
-        <a class="navbar-brand" href="accordeon.php">Dashbord</a>
+        <a class="navbar-brand" href="accordeon.php">Dashboard</a>
 
         <!-- Toggler/collapsibe Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -31,7 +31,7 @@
                  <a class="nav-link" href="modifier.php">Modifier</a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link" href="#">Supprimer</a>
+                 <a class="nav-link" href="supprimer.php">Supprimer</a>
               </li>
            </ul>
         </div>

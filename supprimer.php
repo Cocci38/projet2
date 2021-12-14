@@ -41,6 +41,11 @@
     </header>
     <main>
     <div class="container">
+    <div class="d-md-flex justify-content-md-top">
+        <button type="button" class="btn btn-outline-succes float-top"><i class="bi bi-plus-lg"></i> Ajouter</button>
+    </div>
+    <div class="container">
+    <div class="h-100 p-5 bg-light border rounded-3">
     <?php
     $nbmorceau = 12;
     echo "<div class='accordion' id='accordionExample'>";
@@ -71,20 +76,21 @@
                                 <strong>Nom de l'Artiste $compteur</strong>
                             </p>
                             </div>
-                            <div class=\"col-6\">
-                            <button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i></button>
+                            <div class=\"col-6 d-md-flex justify-content-md-end\">
+                            <button type='button' class='btn btn-outline-warning me-md-2 float-end'><i class='bi bi-pencil'></i> Modifier</button>
+                            <button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i> Supprimer</button>
                             </div>
                         </div>
-                      
                         </div>
                     </div>
-                    </div>  
+                    </div>   
                     
             ";
     }
     echo "</div>";
 
     ?>
+        </div>
     </div>
     </main>
 </body>
