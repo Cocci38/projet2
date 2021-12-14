@@ -1,9 +1,6 @@
 <?php
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'MaMusique';
+include "config.php";
 $uploaddir = "www/uploads/";
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 

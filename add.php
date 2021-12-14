@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$namedb = "maMusique";
+include('config.php');
 
 try {
         $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);

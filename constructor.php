@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$namedb = "maMusique";
+include "config.php";
 
 try {
 

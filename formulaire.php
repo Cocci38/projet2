@@ -1,5 +1,7 @@
 <?php
+include "config.php";
 include "select.php"; ?>
+
 <form action='' method='post' enctype='multipart/form-data'>
 
     <div>
@@ -24,7 +26,6 @@ include "select.php"; ?>
 <?php
 
 
-// connexion à la BD
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // définition de l'espace destiné à recevoir les fichiers
@@ -43,9 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Contrôle de l'extension du fichier
         if (!(in_array($extension, $extensionsAutorisees_image))) {
             die("Le fichier n'a pas l'extension image attendue");
+        } else {
+            $chemincover = "/p2/projet2/cover/photo_" . $next . $extension;
+            rename($_FILES["cover"]["tmp_name"], $repository . $chemincover);
         }
-        $chemincover = "/p2/projet2/cover/photo_" . $next . $extension;
-        rename($_FILES["cover"]["tmp_name"], $repository . $chemincover);
     }
 
     if (is_uploaded_file($_FILES["sound"]["tmp_name"])) {
@@ -58,22 +60,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Contrôle de l'extension du fichier
         if (!(in_array($extension, $extensionsAutorisees_sound))) {
             die("Le fichier n'a pas l'extension audio attendue");
+        } else {
+            $cheminmusique = "/p2/projet2/sound/musique_" . $next . $extension;
+            rename($_FILES["sound"]["tmp_name"], $repository . $cheminmusique);
         }
-        $cheminmusique = "/p2/projet2/sound/musique_" . $next . $extension;
-        rename($_FILES["sound"]["tmp_name"], $repository . $cheminmusique);
     }
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $namedb = "maMusique";
 
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo 'Connexion réussie<br />';
 
-        $codb->beginTransaction();
+        // $codb->beginTransaction();
 
         $Titre = $_POST['titre'];
         $Album = $_POST['album'];
@@ -82,10 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $Cover = $chemincover;
         $Sound = $cheminmusique;
 
-        $sql3 =
-        "INSERT INTO Musique(titre,album,artiste,genre,cover,sound)
-                        VALUES(" . addslashes($Titre) . "," . addslashes($Album) . "," . addslashes($Artiste) . "','" . addslashes($Genre) . "," . addslashes($Cover) . "," . addslashes($Sound) . ")";
-        $codb->exec($sql3);
+        $sql =
+            "INSERT INTO Musique(titre,album,artiste,genre,cover,sound)
+                        VALUES('" . addslashes($Titre) . "','" . addslashes($Album) . "','" . addslashes($Artiste) . "','" . addslashes($Genre) . "','" . addslashes($Cover) . "','" . addslashes($Sound) . "')";
+        $codb->exec($sql);
         $codb = null;
     } catch (PDOException $e) {
         echo "Message d'erreur : " . $e->getMessage() . "<br />";

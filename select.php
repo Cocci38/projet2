@@ -2,26 +2,22 @@
 //select id Max
 function select_Max_id()
 {
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'MaMusique';
-
+    include "config.php";
     try {
 
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connexion réussie<br />';
-        echo '||Recherche de l id max||<br />';
-        $sql = "SELECT MAX(id) FROM Musique";
+
+        $sql = "SELECT max(id) as id FROM Musique";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
-        $resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
-        if (isset($resultat['max(id)'])) {
-            echo "||valeur retourner ||-->" . $resultat['max(id)'];
-            return $resultat['max(id)'];
+        $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
+        //$resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
+        if ($resultat['id'] > 0) {
+            echo "||valeur retourner TROUVER ||-->" . $resultat['id'];
+            return $resultat['id'];
         } else {
-            echo "||valeur retourner ||-->0";
+            echo "||valeur retourner NON TROUVER||--> 0";
             return 0;
         }
         $codb = null;
@@ -30,7 +26,6 @@ function select_Max_id()
         return "Message d'erreur : " . $e->getMessage() . "<br />";
     }
 }
-
 // select ALL
 function select_All()
 {
@@ -38,8 +33,6 @@ function select_All()
     $username = 'root';
     $password = '';
     $dbname = 'MaMusique';
-
-
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -1,8 +1,5 @@
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$namedb = 'maMusique';
+include "config.php";
 $id_to_delete = 2;/*id recuperer du lien ou on a clique*/
 
 try {
