@@ -8,16 +8,14 @@ try {
     $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo 'Connexion réussie<br />';
-
-
+   
+    /**modification sur le titre */
     if (isset($_POST['Titre'])) {
-        /**modification sur le titre */
         $sql = "UPDATE Musique SET Titre=:Titre WHERE id=:$id_to_change";
         $prepare = $codb->prepare($sql);
         $parametres = [':Titre' => $t_POST['Titre'], ':id' => $id_to_change];
         $prepare->execute($parametres);
-        echo $count . ' entrée(s) modifiée(s) dans la Musiquer<br />';
-    }
+     }
 
     /*modification de l'album*/
     if (isset($_POST['Album'])) {
@@ -45,6 +43,8 @@ try {
     }
 
 
+    // a faire avec l'id
+    // sur cover et sur image si le fichier exite on le supprime et on remplace par le nouveau
 
     /**modification sur le cover */
 
@@ -73,8 +73,6 @@ try {
     } else {
         unset($_FILES['sound']);
     }
-
-
     $codb = null;
 } catch (PDOException $e) {
     echo "Message d'erreur : " . $e->getMessage() . "<br />";

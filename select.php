@@ -8,16 +8,32 @@ function select_Max_id()
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+
+        //version base sur l'auto_increment
+        $sql2 = "SELECT AUTO_INCREMENT AS  nb 
+                    FROM information_schema.tables
+                    WHERE table_name = 'musique'
+                    AND table_schema = DATABASE( )";
+        $prepare2 = $codb->prepare($sql2);
+        $prepare2->execute();
+
+        $resultat2 = $prepare2->fetch(PDO::FETCH_ASSOC);
+        if ($resultat2['nb'] > 1) {
+
+            echo "auto_increment=" . $resultat2['nb'] . "<br>";
+        } else {
+            echo "auto_Increment=0<br>";
+        }
+        //version mbase sur le max
         $sql = "SELECT max(id) as id FROM Musique";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
-        //$resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
-        if ($resultat['id'] > 0) {
-            echo "||valeur retourner TROUVER ||-->" . $resultat['id'];
+        if ($resultat['id'] != NULL) {
+            echo "||DERNIER id Musique TROUVER dans la liste||-->" . $resultat['id'];
             return $resultat['id'];
         } else {
-            echo "||valeur retourner NON TROUVER||--> 0";
+            echo "||DERNIER id Musique TROUVER dans la liste||--> 0";
             return 0;
         }
         $codb = null;
@@ -29,10 +45,7 @@ function select_Max_id()
 // select ALL
 function select_All()
 {
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'MaMusique';
+    include "config.php";
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -54,12 +67,7 @@ function select_All()
 //select by id
 function select_by_Id($id)
 {
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'MaMusique';
-
-
+    include "config.php";
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -71,6 +79,44 @@ function select_by_Id($id)
         $prepare->execute();
         $resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;
+        $codb = null;
+    } catch (PDOException $e) {
+        return "Message d'erreur : " . $e->getMessage() . "<br />";
+    }
+}
+
+function selectsoundby($id)
+{
+    include "config.php";
+    try {
+        $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo 'Connexion réussie<br />';
+        echo 'Sélection des roles ordonnés par ordre alphabétique <br />';
+        $sql = "SELECT cover file FROM Musique WHERE id=$id";
+        $prepare = $codb->prepare($sql);
+        $prepare->execute();
+        $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
+        return $resultat['sound'];
+        $codb = null;
+    } catch (PDOException $e) {
+        return "Message d'erreur : " . $e->getMessage() . "<br />";
+    }
+}
+
+function selectimageby($id)
+{
+    include "config.php";
+    try {
+        $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo 'Connexion réussie<br />';
+
+        $sql = "SELECT cover file FROM Musique WHERE id=$id";
+        $prepare = $codb->prepare($sql);
+        $prepare->execute();
+        $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
+        return $resultat['image'];
         $codb = null;
     } catch (PDOException $e) {
         return "Message d'erreur : " . $e->getMessage() . "<br />";

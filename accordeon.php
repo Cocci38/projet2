@@ -12,34 +12,34 @@
 </head>
 
 <body>
-<header>
-      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #40A497;">
-        <div class="container-fluid">
-        <!-- Brand -->
-        <a class="navbar-brand" href="#">Dashboard</a>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #40A497;">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="navbar-brand" href="#">Dashboard</a>
 
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-           <span class="navbar-toggler-icon"></span>
-        </button>
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-           <ul class="navbar-nav">
-              <li class="nav-item">
-                 <a class="nav-link" href="inserer.php">Insérer</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="modifier.php">Modifier</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="supprimer.php">Supprimer</a>
-              </li>
-           </ul>
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="inserer.php">Insérer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="modifier.php">Modifier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="supprimer.php">Supprimer</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         </div>
-      </div>
-     </nav>
-    </div>
     </header>
     <!--cas page d'acceuil-->
 
@@ -49,22 +49,22 @@
     <!---SINON liste non vide-->
     <!--Afficher toutes les morceaux de musique-->
     <div class="container">
-    <?php
-    $nbmorceau = 12;
-    echo "<div class='accordion' id='accordionExample'>";
-    for ($compteur = 1; $compteur <= $nbmorceau; $compteur++) {
+        <?php
+        $nbmorceau = 12;
+        echo "<div class='accordion' id='accordionExample'>";
+        for ($compteur = 1; $compteur <= $nbmorceau; $compteur++) {
 
-        if ($compteur == 1) {
-            $btn_class = "accordion-button";
-            $div_class = "accordion-collapse collapse show";
-            $btn_expended = "arial-expended='true'";
-        } else {
-            $btn_class = "accordion-button collapsed";
-            $div_class = "accordion-collapse collapse";
-            $btn_expended = "arial-expended='false'";
-        }
+            if ($compteur == 1) {
+                $btn_class = "accordion-button";
+                $div_class = "accordion-collapse collapse show";
+                $btn_expended = "arial-expended='true'";
+            } else {
+                $btn_class = "accordion-button collapsed";
+                $div_class = "accordion-collapse collapse";
+                $btn_expended = "arial-expended='false'";
+            }
 
-        echo "
+            echo "
                    <div class='accordion-item'>
                     <h2 class='accordion-header' id='heading$compteur'>
                         <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>
@@ -80,13 +80,14 @@
                     </div>
                 </div>
             ";
-    }
-    echo "</div>";
+        }
+        echo "</div>";
 
-    ?>
+        ?>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </html>
