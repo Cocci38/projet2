@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="CSS\style.css">
     <title>Document</title>
 </head>
@@ -41,36 +42,45 @@
     <main>
       <div class="container">
          <h4>Formulaire d'insertion de musique</h4>
-         <form method="POST" enctype="multipart/form-data" action="">
+         <form method="POST" enctype="multipart/form-data" action="formulaire.php">
                     <div class="row mb-3">
                         <div class="col">
                             <label for="titre">Titre</label>
-                            <input type="text" class="form-control" id="titre" placeholder="">   
+                            <input type="text" class="form-control" id="titre" required>   
                         </div>
                         <div class="col">
                             <label for="artiste">Artiste</label>
-                            <input type="text" class="form-control" id="artiste" placeholder="">
+                            <input type="text" class="form-control" id="artiste">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="album">Album</label>
-                            <input type="text" class="form-control" id="album" placeholder="">
+                            <input type="text" class="form-control" id="album">
                         </div>
                         <div class="col">
                             <label for="genre">Genre</label>
-                            <input type="text" class="form-control" id="genre" placehorder="">
+                            <input type="text" class="form-control" id="genre">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <img src="chemindaccesdelimage" id="image1">
-                            <label for="cover_image">Cover</label>
-                            <input type="file" name="cover_image" class="form-control-file" id="cover_image" placeholder="">
+                        <div class="image-upload">
+                            <label for="sound">
+                                <img src=img\sound1.png width="100px"/>
+                            </label>
+
+                        <input id="sound" type="file" />
+                        </div>
                         </div>
                         <div class="col">
-                            <label for="file_sound">Fichier</label>
-                            <input type="file" name="file_sound" class="form-control-file" id="file_sound" placeholder="">
+                        <div class="image-upload">
+                            <label for="cover">
+                                <img src=img\cover.png width="100px"/>
+                            </label>
+
+                            <input id="cover" type="file" />
+                        </div>
                         </div>
                     </div>                 
                     </div>
@@ -82,6 +92,7 @@
                         <button type="cancel" class="btn" style="background-color: #40A497;">Annuler</button>
                 </form>
       </div>
+      
     </main>
     <footer>
 

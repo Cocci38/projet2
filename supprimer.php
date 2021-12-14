@@ -41,16 +41,15 @@
     </header>
     <main>
     <div class="container">
-    <div class="d-md-flex justify-content-md-top">
-        <button type="button" class="btn btn-outline-succes float-top"><i class="bi bi-plus-lg"></i> Ajouter</button>
-    </div>
-    <div class="container">
-    <div class="h-100 p-5 bg-light border rounded-3">
+        
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <div class="d-flex justify-content-center">
+                <a href="inserer.php"><button type="button" class="btn btn-outline-success"><i class="bi bi-plus-lg"></i> Ajouter</button></a>
+            </div>
     <?php
     $nbmorceau = 12;
     echo "<div class='accordion' id='accordionExample'>";
     for ($compteur = 1; $compteur <= $nbmorceau; $compteur++) {
-
         if ($compteur == 1) {
             $btn_class = "accordion-button";
             $div_class = "accordion-collapse collapse show";
@@ -77,8 +76,8 @@
                             </p>
                             </div>
                             <div class=\"col-6 d-md-flex justify-content-md-end\">
-                            <button type='button' class='btn btn-outline-warning me-md-2 float-end'><i class='bi bi-pencil'></i> Modifier</button>
-                            <button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i> Supprimer</button>
+                            <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end'><i class='bi bi-pencil'></i> Modifier</button></a>
+                            <a href='supprimer'pagedeconfirmation.php?id=><button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i> Supprimer</button></a>
                             </div>
                         </div>
                         </div>
