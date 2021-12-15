@@ -45,7 +45,7 @@
                                 <img src=img\sound2.png width="100px"/>
                             </label>
 
-                        <input id="sound" type="file" />
+                        <input id="sound" type="file" required/>
                         </div>
                         </div>
                         <div class="col">
@@ -54,7 +54,7 @@
                                 <img src=img\cover1.png width="100px"/>
                             </label>
 
-                            <input id="cover" type="file" />
+                            <input id="cover" type="file" required/>
                         </div>
                         </div>
                     </div>                 

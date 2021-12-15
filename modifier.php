@@ -19,21 +19,21 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label for="titre">Titre</label>
-                            <input type="text" class="form-control" id="titre" placeholder="">   
+                            <input type="text" class="form-control" id="titre" required>   
                         </div>
                         <div class="col">
                             <label for="artiste">Artiste</label>
-                            <input type="text" class="form-control" id="artiste" placeholder="">
+                            <input type="text" class="form-control" id="artiste">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="album">Album</label>
-                            <input type="text" class="form-control" id="album" placeholder="">
+                            <input type="text" class="form-control" id="album">
                         </div>
                         <div class="col">
                             <label for="genre">Genre</label>
-                            <input type="text" class="form-control" id="genre" placehorder="">
+                            <input type="text" class="form-control" id="genre">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -43,7 +43,7 @@
                                 <img src=img\sound2.png width="100px"/>
                             </label>
 
-                        <input id="sound" type="file" />
+                        <input id="sound" type="file" required/>
                         </div>
                         </div>
                         <div class="col">
@@ -52,7 +52,7 @@
                                 <img src=img\cover1.png width="100px"/>
                             </label>
 
-                            <input id="cover" type="file" />
+                            <input id="cover" type="file" required/>
                         </div>
                         </div>
                     </div>                 

@@ -13,34 +13,9 @@
     <title>Document</title>
 </head>
 <body>
-<header>
-      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #1b3954;">
-        <div class="container-fluid">
-        <!-- Brand -->
-        <a class="navbar-brand" href="accordeon.php">Dashboard</a>
-
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-           <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-           <ul class="navbar-nav">
-              <li class="nav-item">
-                 <a class="nav-link" href="inserer.php">Insérer</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="modifier.php">Modifier</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="#">Supprimer</a>
-              </li>
-           </ul>
-        </div>
-      </div>
-     </nav>
-    </header>
+<?php 
+    include 'nav.php';
+ ?>
     <main>
        <div class="container py-4">
          <div class="h-100 p-5 bg-light border rounded-3">
