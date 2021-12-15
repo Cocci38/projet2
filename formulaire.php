@@ -25,7 +25,7 @@ include "select.php"; ?>
 </form>
 <?php
 
-
+/*
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // définition de l'espace destiné à recevoir les fichiers
@@ -90,5 +90,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } catch (PDOException $e) {
         echo "Message d'erreur : " . $e->getMessage() . "<br />";
     }
-}
+}*/
 ?>
