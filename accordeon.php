@@ -73,9 +73,39 @@
                     </h2>
                     <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
                         <div class='accordion-body'>
-                        <p>
-                            <strong>Nom de l'Artiste  $compteur</strong>
-                        </p>
+                            <div class='container'>
+                                <div class='row'>
+                                    <div class='col'>
+                                        <p>
+                                            <strong>Nom de l'Artiste  $compteur</strong>
+                                        </p>
+                                    </div>
+                                    <div class='col'>
+                                        <p>
+                                            <strong>Album  $compteur</strong>
+                                        </p>
+                                    </div>
+                                    </div>
+                                <div class='row'>
+                                    <div class='col'>
+                                        <p>
+                                            <strong>Genre  $compteur</strong>
+                                        </p>
+                                    </div>
+                                    <div class='col'>
+                                        <p>
+                                            <strong><img src='imageadefinir_id'>  $compteur</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col'>
+                                        <p>
+                                            <strong><audio title='titreadefinir' preload='auto' controls loop><source src='sourceadefinir.mp3 type='audio/mp3'></audio>   $compteur</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

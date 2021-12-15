@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
            <ul class="navbar-nav">
               <li class="nav-item">
-                 <a class="nav-link" href="inserer.php">Insérer</a>
+                 <a class="nav-link active" href="inserer.php">Insérer</a>
               </li>
               <li class="nav-item">
                  <a class="nav-link" href="modifier.php">Modifier</a>
@@ -44,8 +44,8 @@
     <main>
        <div class="container py-4">
          <div class="h-100 p-5 bg-light border rounded-3">
-            <div class="d-grid gap-2 col-6 mx-auto">
-               <button type="button" class="btn btn-outline-secondary fs-4"><i class="bi bi-music-note"></i> Ajouter <i class="bi bi-music-note"></i></button>
+            <div class="d-grid gap-2 col-2 mx-auto">
+               <a href="inserer.php"><button type="button" class="btn btn-outline-secondary fs-4"><i class="bi bi-music-note"></i> Ajouter <i class="bi bi-music-note"></i></button></a>
             </div>
          </div>
        </div>
