@@ -20,7 +20,6 @@
          <div class="container-fluid">
             <!-- Brand -->
             <a class="navbar-brand" href="accordeon.php">Dashboard</a>
-
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                <span class="navbar-toggler-icon"></span>

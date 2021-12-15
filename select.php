@@ -17,28 +17,19 @@ function select_Max_id()
         $prepare2 = $codb->prepare($sql2);
         $prepare2->execute();
 
-        echo "<h1>LA VERSION AUTO INCREMENT RENVOIE:</h1> <br>";
         $resultat2 = $prepare2->fetch(PDO::FETCH_ASSOC);
         if ($resultat2['nb'] > 1) {
-
-            echo "Auto_increment ->" . $resultat2['nb'] . "<br>";
-            echo "et les fichiers se nommeront xxx_" . $resultat2['nb'] . "<br";
         } else {
-            echo "AUTO_INCREMENT = 0<br>";
+       
         }
-        echo "<h1>LA VERSION MAX ID RENVOIE:</h1><br>";
         //version mbase sur le max
         $sql = "SELECT max(id) as id FROM Musique";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
         if ($resultat['id'] != NULL) {
-            echo "||DERNIER id Musique TROUVER dans la liste||-->" . $resultat['id'] . "<br";
-            echo "et les fichiers se nommeront xxx_" . $resultat['id'] . "<br";
             return $resultat['id'];
         } else {
-            echo "||MAX(id) non defini ->il n'y a pas de musique||--> 0<br>";
-            echo "et les fichiers se nommeront xxx_0.ext<br";
             return 0;
         }
         $codb = null;
