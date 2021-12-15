@@ -12,6 +12,7 @@
 </head>
 <body>
 <header>
+
       <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #40A497;">
         <div class="container-fluid">
         <!-- Brand -->
@@ -38,6 +39,7 @@
         </div>
       </div>
      </nav>
+     <!--<div class=img-fluid><img src="img\fond.png"  width="100%" height="auto" class="img-fluid">-->
     </header>
     <main>
     <div class="container">
@@ -61,37 +63,75 @@
         }
 
         echo "
-                   <div class='accordion-item'>
-                    <h2 class='accordion-header' id='heading$compteur'>
-                        <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>
-                        Titre de la Musique$compteur
-                        </button>
-                    </h2>
-                    <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
-                        <div class='accordion-body'>
-                        <div class=\"row\">
-                            <div class=\"col-6\">
-                            <p>
-                                <strong>Nom de l'Artiste $compteur</strong>
-                            </p>
-                            </div>
-                            <div class=\"col-6 d-md-flex justify-content-md-end\">
-                            <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end'><i class='bi bi-pencil'></i> Modifier</button></a>
-                            <a href='supprimer'pagedeconfirmation.php?id=><button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i> Supprimer</button></a>
-                            </div>
+        <div class='accordion-item'>
+                <div class='row'>
+                    <h2 class='accordion-header col-10' id='heading$compteur'>
+                        <div class='col'>
+                            <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>
+                            Titre de la Musique$compteur
+                            </button>
                         </div>
+                    </h2>
+                    <div class='col-2'>  
+                    <a href='supprimer'pagedeconfirmation.php?id=><button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i></button></a>
+                    <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end'><i class='bi bi-pencil'></i></button></a>
+                </div>
+                </div>
+        <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
+            <div class='accordion-body'>
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col'>
+                            <p>
+                                <strong>Nom de l'Artiste  $compteur</strong>
+                            </p>
+                        </div>
+                        <div class='col'>
+                            <p>
+                                <strong>Album  $compteur</strong>
+                            </p>
+                        </div>
+                        </div>
+                    <div class='row'>
+                        <div class='col'>
+                            <p>
+                                <strong>Genre  $compteur</strong>
+                            </p>
+                        </div>
+                        <div class='col'>
+                            <p>
+                                <strong><img src='imageadefinir_id'>  $compteur</strong>
+                            </p>
                         </div>
                     </div>
-                    </div>   
-                    
+                    <div class='row'>
+                        <div class='col'>
+                            <p>
+                                <strong><audio title='titreadefinir' preload='auto' controls loop><source src='sourceadefinir.mp3 type='audio/mp3'></audio>   $compteur</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>         
             ";
     }
     echo "</div>";
 
     ?>
+    <!--<div class='col-6 d-md-flex justify-content-md-end'>
+            <div class='row'>
+                <div class='col-6'>
+                    <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end'><i class='bi bi-pencil'></i> Modifier</button></a>
+                    <a href='supprimer'pagedeconfirmation.php?id=><button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i> Supprimer</button></a>
+                </div>
+            </div>
+        </div>-->
         </div>
     </div>
     </main>
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
