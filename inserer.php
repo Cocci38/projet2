@@ -11,34 +11,9 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #40A497;">
-        <div class="container-fluid">
-        <!-- Brand -->
-        <a class="navbar-brand" href="accordeon.php">Dashboard</a>
-
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-           <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-           <ul class="navbar-nav">
-              <li class="nav-item">
-                 <a class="nav-link" href="#">Insérer</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="modifier.php">Modifier</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="supprimer.php">Supprimer</a>
-              </li>
-           </ul>
-        </div>
-      </div>
-     </nav>
-    </header>
+<?php 
+    include 'nav.php';
+ ?>
     <main>
       <div class="container">
          <h4>Formulaire d'insertion de musique</h4>
@@ -67,7 +42,7 @@
                         <div class="col">
                         <div class="image-upload">
                             <label for="sound">
-                                <img src=img\sound1.png width="100px"/>
+                                <img src=img\sound2.png width="100px"/>
                             </label>
 
                         <input id="sound" type="file" />
@@ -76,7 +51,7 @@
                         <div class="col">
                         <div class="image-upload">
                             <label for="cover">
-                                <img src=img\cover.png width="100px"/>
+                                <img src=img\cover1.png width="100px"/>
                             </label>
 
                             <input id="cover" type="file" />
@@ -88,8 +63,8 @@
     </div>
     <div class="container">
                 <form method="POST" enctype="multipart/form-data" action="">                
-                        <button type="submit" class="btn" style="background-color: #40A497;">Valider</button>
-                        <button type="cancel" class="btn" style="background-color: #40A497;">Annuler</button>
+                        <button type="submit" class="btn text-white" style="background-color: #16ade1;">Valider</button>
+                        <button type="cancel" class="btn text-white" style="background-color: #1b3954;">Annuler</button>
                 </form>
       </div>
       

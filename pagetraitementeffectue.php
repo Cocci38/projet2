@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #40A497;">
+      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #1b3954;">
         <div class="container-fluid">
         <!-- Brand -->
         <a class="navbar-brand" href="accordeon.php">Dashboard</a>

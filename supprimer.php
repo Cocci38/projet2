@@ -11,42 +11,16 @@
     <title>Document</title>
 </head>
 <body>
-<header>
-
-      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #40A497;">
-        <div class="container-fluid">
-        <!-- Brand -->
-        <a class="navbar-brand" href="accordeon.php">Dashboard</a>
-
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-           <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-           <ul class="navbar-nav">
-              <li class="nav-item">
-                 <a class="nav-link" href="inserer.php">Insérer</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="modifier.php">Modifier</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="#">Supprimer</a>
-              </li>
-           </ul>
-        </div>
-      </div>
-     </nav>
-     <!--<div class=img-fluid><img src="img\fond.png"  width="100%" height="auto" class="img-fluid">-->
-    </header>
+ <?php 
+    include 'nav.php';
+ ?>
     <main>
     <div class="container">
         
         <div class="h-100 p-5 bg-light border rounded-3">
-            <div class="d-flex justify-content-center">
-                <a href="inserer.php"><button type="button" class="btn btn-outline-success"><i class="bi bi-plus-lg"></i> Ajouter</button></a>
+            <div class="d-flex justify-content-center fixed-bottom">
+                <a href="inserer.php"><button type="button" class="btn btn-outline-success"><i class="bi bi-plus-lg"></i>
+                </button></a>
             </div>
     <?php
     $nbmorceau = 12;
@@ -100,7 +74,7 @@
                         </div>
                         <div class='col'>
                             <p>
-                                <strong><img src='imageadefinir_id'>  $compteur</strong>
+                                <strong><img src='img\cover1.png' width='100px'>  $compteur</strong>
                             </p>
                         </div>
                     </div>

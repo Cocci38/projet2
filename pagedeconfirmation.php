@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #40A497;">
+      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #1b3954;">
         <div class="container-fluid">
         <!-- Brand -->
         <a class="navbar-brand" href="accordeon.php">Dashboard</a>
@@ -44,8 +44,8 @@
             <div class="alert" role="alert">
                 <h4 class="alert-heading ">Liste des morceaux de musique</h4>
                 <p>Voulez-vous vraiment supprimer ce morceau de musique</p>
-                <p><button type="submit" class="btn" style="background-color: #40A497;">Valider</button>
-                <button type="cancel" class="btn" style="background-color: #40A497;">Annuler</button></p>
+                <p><button type="submit" class="btn text-white" style="background-color: #16ade1;">Valider</button>
+                <button type="cancel" class="btn text-white" style="background-color: #1b3954;">Annuler</button></p>
             </div>
         </div>
     </main>
