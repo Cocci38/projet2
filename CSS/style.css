@@ -11,3 +11,13 @@ li{
 .navbar-dark .navbar-nav .nav-link.active{
      color: #FFF;
 }
+.btn-dark {
+    border-color: #1b3954;
+    color: #1b3954;
+}
+img {
+    width: 100px;
+}
+.border {
+    border-color: #1b3954!important;
+}
