@@ -21,3 +21,6 @@ img {
 .border {
     border-color: #1b3954!important;
 }
+.img-fluid {
+    width: 50px;
+}
