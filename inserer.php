@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,64 +11,67 @@
     <link rel="stylesheet" href="CSS\style.css">
     <title>Document</title>
 </head>
+
 <body>
-<?php 
+    <?php
     include 'nav.php';
- ?>
+    ?>
     <main>
-      <div class="container">
-         <h4>Formulaire d'insertion de musique</h4>
-         <form method="POST" enctype="multipart/form-data" action="formulaire.php">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="titre">Titre</label>
-                            <input type="text" class="form-control" id="titre" required>   
-                        </div>
-                        <div class="col">
-                            <label for="artiste">Artiste</label>
-                            <input type="text" class="form-control" id="artiste">
-                        </div>
+        <div class="container">
+            <h4>Formulaire d'insertion de musique</h4>
+            <form method="POST" enctype="multipart/form-data" action="formulaire.php">
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="titre">Titre</label>
+                        <input type="text" class="form-control" id="titre" required>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="album">Album</label>
-                            <input type="text" class="form-control" id="album">
-                        </div>
-                        <div class="col">
-                            <label for="genre">Genre</label>
-                            <input type="text" class="form-control" id="genre">
-                        </div>
+                    <div class="col">
+                        <label for="artiste">Artiste</label>
+                        <input type="text" class="form-control" id="artiste">
                     </div>
-                    <div class="row mb-3">
-                        <div class="col">
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="album">Album</label>
+                        <input type="text" class="form-control" id="album">
+                    </div>
+                    <div class="col">
+                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" id="genre">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
                         <div class="image-upload">
                             <label for="sound">
-                                <img src=img\sound2.png width="100px"/>
+                                <img src=img\sound2.png width="100px" />
                             </label>
 
-                        <input id="sound" type="file" required/>
+                            <input id="sound" type="file" required />
                         </div>
-                        </div>
-                        <div class="col">
+                    </div>
+                    <div class="col">
                         <div class="image-upload">
                             <label for="cover">
-                                <img src=img\cover1.png width="100px"/>
+                                <img src=img\cover1.png width="100px" />
                             </label>
 
-                            <input id="cover" type="file" required/>
+                            <input id="cover" type="file" required />
                         </div>
-                        </div>
-                    </div>                 
                     </div>
-                </form>
-    </div>
-    <div class="container">
-                <form method="POST" enctype="multipart/form-data" action="">                
-                        <button type="submit" class="btn text-white" style="background-color: #16ade1;">Valider</button>
-                        <button type="cancel" class="btn text-white" style="background-color: #1b3954;">Annuler</button>
-                </form>
-      </div>
-      
+                </div>
+        </div>
+        <!--formulaire insertion-->
+        <input id="Etat" name="Etat" type="hidden" value="add">
+        </form>
+        </div>
+        <div class="container">
+            <form method="POST" enctype="multipart/form-data" action="pagedeconfirmation.php">
+                <button type="submit" class="btn text-white" style="background-color: #16ade1;">Valider</button>
+                <button type="cancel" class="btn text-white" style="background-color: #1b3954;">Annuler</button>
+            </form>
+        </div>
+
     </main>
     <footer>
 
@@ -76,4 +80,5 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </html>
