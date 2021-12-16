@@ -1,5 +1,5 @@
 <?php
-$basenameweb = "/p2/projet2/";
+$basenameWeb = "http://localhost";
 $servername = 'localhost';
 $username = 'root';
 $password = '';

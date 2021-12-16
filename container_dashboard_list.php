@@ -1,4 +1,5 @@
-<?
+<?php
+include 'config.php';
 $liste = select_All();
 foreach ($liste as $ligne) {
    echo "<div class='container'>";
@@ -17,36 +18,35 @@ foreach ($liste as $ligne) {
    }
 
    echo "<div class='accordion-item'>
-            <h2 class='accordion-header' id='heading$compteur'>
-               <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>" . $ligne['Titre'] . "</button>
-            </h2>
-            <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
-               <div class='accordion-body'>
-                  <div class='container'>
-                     <div class='row'>
-                        <div class='col'>
-                           <p>
-                              <strong>" . $ligne['Artiste'] . "</strong>                                                
-                           </p>
-                        </div>
-                        <div class='col'>
-                           <p>
-                              <strong>" . $ligne['Album'] . "</strong>
-                           </p>
-                        </div>
+         <h2 class='accordion-header' id='heading$compteur'>
+            <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>" . $ligne['Titre'] . "</button>
+         </h2>
+         <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
+            <div class='accordion-body'>
+               <div class='container'>
+                  <div class='row'>
+                     <div class='col'>
+                        <p>
+                           <strong>" . $ligne['Artiste'] . "</strong>
+                        </p>
                      </div>
-                     <div class='row'>
-                        <div class='col'>
-                           <p>
-                              <strong>" . $ligne['Genre'] . "</strong>
-                           </p>
-                        </div>
-                        <div class='col'>
-                           <p>
-                              <strong>";
-   echo (empty($ligne['Cover'])) ? $Cover_vide : "<img src='" . $ligne['Cover'] . "'>";
-   echo "   </strong>
-                           </p>
+                     <div class='col'>
+                        <p>
+                           <strong>" . $ligne['Album'] . "</strong>
+                        </p>
+                     </div>
+                  </div>
+                  <div class='row'>
+                     <div class='col'>
+                        <p>
+                           <strong>" . $ligne['Genre'] . "</strong>
+                        </p>
+                     </div>
+                     <div class='col'>
+                        <p>";
+   echo ($ligne['Cover'] == "") ? $Cover_vide : "<img src='" . $basenameWeb . $ligne['Cover'] . "'>";
+
+   echo "              </p>
                         </div>
                      </div>
                      <div class='row'>

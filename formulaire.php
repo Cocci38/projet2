@@ -2,7 +2,7 @@
 include "config.php";
 include "select.php"; ?>
 
-<form action='add.php' method='post' enctype='multipart/form-data'>
+<form action='formulaire.php' method='post' enctype='multipart/form-data'>
 
     <div>
         <lable>Titre</label>
@@ -25,7 +25,7 @@ include "select.php"; ?>
 </form>
 <?php
 
-/*
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // définition de l'espace destiné à recevoir les fichiers
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!(in_array($extension, $extensionsAutorisees_image))) {
             die("Le fichier n'a pas l'extension image attendue");
         } else {
-            $chemincover = "/p2/projet2/cover/photo_" . $next . $extension;
+            $chemincover = "/p2/projet2/image/cover_" . $next . $extension;
             echo "||" . $chemincover . "<br>";
             rename($_FILES["Cover"]["tmp_name"], $repository . $chemincover);
         }
@@ -90,5 +90,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } catch (PDOException $e) {
         echo "Message d'erreur : " . $e->getMessage() . "<br />";
     }
-}*/
+}
 ?>

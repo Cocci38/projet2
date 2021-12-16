@@ -2,14 +2,14 @@
 //select id Max
 function select_Max_id()
 {
-    include "config.php";
+    include 'config.php';
     try {
 
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        //version base sur l'auto_increment
+        /*//version base sur l'auto_increment
         $sql2 = "SELECT AUTO_INCREMENT AS  nb 
                     FROM information_schema.tables
                     WHERE table_name = 'musique'
@@ -20,7 +20,7 @@ function select_Max_id()
         $resultat2 = $prepare2->fetch(PDO::FETCH_ASSOC);
         if ($resultat2['nb'] > 1) {
         } else {
-        }
+        }*/
         //version mbase sur le max
         $sql = "SELECT max(id) as id FROM Musique";
         $prepare = $codb->prepare($sql);
