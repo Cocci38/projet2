@@ -16,10 +16,9 @@
  ?>
     <main>
     <div class="container">
-        
         <div class="h-100 p-5 bg-light border rounded-3">
-            <div class="d-flex justify-content-center fixed-bottom">
-                <a href="inserer.php"><button type="button" class="btn btn-outline-success"><i class="bi bi-plus-lg"></i>
+            <div class="d-flex top-50 start-0 ms-3 fixed-bottom">
+                <a href="inserer.php"><button type="button" class="btn btn-outline-success btn-lg" style="color: #033C05"><i class="bi bi-plus-lg"></i>
                 </button></a>
             </div>
     <?php
@@ -38,19 +37,11 @@
 
         echo "
         <div class='accordion-item'>
-                <div class='row'>
-                    <h2 class='accordion-header col-10' id='heading$compteur'>
-                        <div class='col'>
+                    <h2 class='accordion-header' id='heading$compteur'>
                             <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>
                             Titre de la Musique$compteur
                             </button>
-                        </div>
                     </h2>
-                    <div class='col-2'>  
-                    <a href='supprimer'pagedeconfirmation.php?id=><button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i></button></a>
-                    <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end'><i class='bi bi-pencil'></i></button></a>
-                </div>
-                </div>
         <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
             <div class='accordion-body'>
                 <div class='container'>
@@ -84,6 +75,12 @@
                                 <strong><audio title='titreadefinir' preload='auto' controls loop><source src='sourceadefinir.mp3 type='audio/mp3'></audio>   $compteur</strong>
                             </p>
                         </div>
+                        <div class='col'>
+                            <p>
+                            <a href='supprimer'pagedeconfirmation.php?id=><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
+                            <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end btn-lg'><i class='bi bi-pencil'></i></button></a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,14 +91,6 @@
     echo "</div>";
 
     ?>
-    <!--<div class='col-6 d-md-flex justify-content-md-end'>
-            <div class='row'>
-                <div class='col-6'>
-                    <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end'><i class='bi bi-pencil'></i> Modifier</button></a>
-                    <a href='supprimer'pagedeconfirmation.php?id=><button type='button' class='btn btn-outline-secondary float-end'><i class='bi bi-trash'></i> Supprimer</button></a>
-                </div>
-            </div>
-        </div>-->
         </div>
     </div>
     </main>
