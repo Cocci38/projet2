@@ -66,7 +66,7 @@
         </form>
         </div>
         <div class="container">
-            <form method="POST" enctype="multipart/form-data" action="pagedeconfirmation.php">
+            <form method="POST" enctype="multipart/form-data" action="add_bis.php">
                 <button type="submit" class="btn text-white" style="background-color: #16ade1;">Valider</button>
                 <button type="cancel" class="btn text-white" style="background-color: #1b3954;">Annuler</button>
             </form>
