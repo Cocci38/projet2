@@ -8,7 +8,7 @@ function addMusique()
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // définition de l'espace destiné à recevoir les fichiers
-                $repository = $_SERVER["DOCUMENT_ROOT"];
+                $repository = $_SERVER["DOCUMENT_ROOT"] . "/p2/projet2/";
                 $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
                 //ogg|mp3|mp4|m4a|wav|wma
                 $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
@@ -40,7 +40,7 @@ function addMusique()
                         if (!(in_array($extension, $extensionsAutorisees_image))) {
                                 die("Le fichier n'a pas l'extension img attendue");
                         } else {
-                                $chemincover = "/p2/projet2/image/image_" . $next . $extension;
+                                $chemincover = "image/image_" . $next . $extension;
                                 rename($_FILES["Cover"]["tmp_name"], $repository . $chemincover);
                         }
                 } else {
@@ -61,7 +61,7 @@ function addMusique()
                         if (!(in_array($extension, $extensionsAutorisees_sound))) {
                                 die("Le fichier n'a pas l'extension audio attendue");
                         } else {
-                                $cheminmusique = "/p2/projet2/sound/musique_" . $next . $extension;
+                                $cheminmusique = "sound/musique_" . $next . $extension;
                                 rename($_FILES["Sound"]["tmp_name"], $repository . $cheminmusique);
                         }
                 } else {

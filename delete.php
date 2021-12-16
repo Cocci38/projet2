@@ -25,7 +25,6 @@ function deletemusiqueby($id)
     include 'config.php';
     //suppression des images et du son via l'id
 
-    selectimageby($id);
     del_soundby(selectsoundby($id));
     del_coverby(selectimageby($id));
 

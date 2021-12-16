@@ -85,6 +85,7 @@ function selectsoundby($id)
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
+        $resultat['Sound'];
         return $resultat['Sound'];
         $codb = null;
     } catch (PDOException $e) {
@@ -102,6 +103,7 @@ function selectimageby($id)
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
+        echo  $resultat['Cover'];
         return $resultat['Cover'];
         $codb = null;
     } catch (PDOException $e) {
