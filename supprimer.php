@@ -18,21 +18,18 @@
         <?php
         include 'nav.php';
         include 'select.php';
+        include 'message.php';
         ?>
         <main>
             <?php
 
             if (select_Max_id() == 0) {
-                echo "<div class='alert alert-success alert-dismissible fade show'>
-                    <strong>la base est vide</strong>
-                    <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-              </div>";
+                echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+                echo
                 include 'container_dashboard_list_vide.php';
             } else {
-                echo " <div class='alert alert-success alert-dismissible fade show'>
-                    <strong>VEUILLEZ SELECTIONNER une MUsique</strong>
-                    <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-              </div>";
+
+                echo MSG_WARNING_MUSIC_NOT_SELECTIONNE;
                 include 'container_dashboard_list.php';
             } ?>
         </main>
