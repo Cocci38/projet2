@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,93 +11,34 @@
     <link rel="stylesheet" href="CSS\style.css">
     <title>Document</title>
 </head>
+
 <body>
- <?php 
-    include 'nav.php';
- ?>
-    <main>
-    <div class="container">
-        <div class="h-100 p-5 bg-light border rounded-3">
-            <div class="d-flex top-50 start-0 ms-3 fixed-bottom">
-                <a href="inserer.php"><button type="button" class="btn btn-outline-success btn-lg" style="color: #033C05"><i class="bi bi-plus-lg"></i>
-                </button></a>
-            </div>
-    <?php
-    $nbmorceau = 12;
-    echo "<div class='accordion' id='accordionExample'>";
-    for ($compteur = 1; $compteur <= $nbmorceau; $compteur++) {
-        if ($compteur == 1) {
-            $btn_class = "accordion-button";
-            $div_class = "accordion-collapse collapse show";
-            $btn_expended = "arial-expended='true'";
-        } else {
-            $btn_class = "accordion-button collapsed";
-            $div_class = "accordion-collapse collapse";
-            $btn_expended = "arial-expended='false'";
-        }
 
-        echo "
-        <div class='accordion-item'>
-                    <h2 class='accordion-header' id='heading$compteur'>
-                            <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>
-                            Titre de la Musique$compteur
-                            </button>
-                    </h2>
-        <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
-            <div class='accordion-body'>
-                <div class='container'>
-                    <div class='row'>
-                        <div class='col'>
-                            <p>
-                                <strong>Nom de l'Artiste  $compteur</strong>
-                            </p>
-                        </div>
-                        <div class='col'>
-                            <p>
-                                <strong>Album  $compteur</strong>
-                            </p>
-                        </div>
-                        </div>
-                    <div class='row'>
-                        <div class='col'>
-                            <p>
-                                <strong>Genre  $compteur</strong>
-                            </p>
-                        </div>
-                        <div class='col'>
-                            <p>
-                                <strong><img src='img\cover1.png' width='100px'>  $compteur</strong>
-                            </p>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='col'>
-                            <p>
-                                <strong><audio title='titreadefinir' preload='auto' controls loop><source src='sourceadefinir.mp3 type='audio/mp3'></audio>   $compteur</strong>
-                            </p>
-                        </div>
-                        <div class='col'>
-                            <p>
-                            <a href='delete.php?id=^$><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
-                            <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end btn-lg'><i class='bi bi-pencil'></i></button></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>         
-            ";
-    }
-    echo "</div>";
+    <body>
+        <?php
+        include 'nav.php';
+        include 'select.php';
+        ?>
+        <main>
+            <?php
 
-    ?>
-        </div>
-    </div>
-    </main>
-    </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+            if (select_Max_id() == 0) {
+                echo "<div class='alert alert-success alert-dismissible fade show'>
+                    <strong>la base est vide</strong>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+              </div>";
+                include 'container_dashboard_list_vide.php';
+            } else {
+                echo " <div class='alert alert-success alert-dismissible fade show'>
+                    <strong>VEUILLEZ SELECTIONNER une MUsique</strong>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+              </div>";
+                include 'container_dashboard_list.php';
+            } ?>
+        </main>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </html>
