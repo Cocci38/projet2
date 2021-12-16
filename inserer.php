@@ -19,7 +19,7 @@
     <main>
         <div class="container">
             <h4>Formulaire d'insertion de musique</h4>
-            <form method="POST" enctype="multipart/form-data" action="formulaire.php">
+            <form method="POST" enctype="multipart/form-data" action="add_bis.php">
                 <div class="row mb-3">
                     <div class="col">
                         <label for="titre">Titre</label>
