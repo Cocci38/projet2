@@ -16,6 +16,7 @@
 <body>
 <?php 
     include 'nav.php';
+        include "select.php";
  ?>
     <!--cas page d'acceuil-->
 
@@ -26,10 +27,11 @@
     <!--Afficher toutes les morceaux de musique-->
     <div class="container">
         <?php
-        $nbmorceau = 12;
+        //$nbmorceau = 12;
+        $tableau = select_All();
         echo "<div class='accordion' id='accordionExample'>";
-        for ($compteur = 1; $compteur <= $nbmorceau; $compteur++) {
-
+        foreach ($tableau as $ligne) {
+            $compteur = $ligne['id'];
             if ($compteur == 1) {
                 $btn_class = "accordion-button";
                 $div_class = "accordion-collapse collapse show";

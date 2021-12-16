@@ -59,8 +59,7 @@ include('select.php') ?>
          echo "<div class=\"container\">";
          foreach ($liste as $ligne) {
             $compteur = $ligne['Id'];
-            foreach ($ligne as $key => $value) {
-               echo "<div class='accordion' id='accordionExample'>";
+            echo "<div class='accordion' id='accordionExample'>";
                if ($compteur == 1) {
                   $btn_class = "accordion-button";
                   $div_class = "accordion-collapse collapse show";
@@ -118,7 +117,6 @@ include('select.php') ?>
                               </div>
                            </div>
                  </div>";
-            }
          }
       }
       ?>
