@@ -1,30 +1,33 @@
 <?php
-include "config.php";
-include "select.php";
+include 'config.php';
+include 'select.php';
 
 
 function del_coverby($chemincover)
 {
+    include 'config.php';
     if (!empty($chemincover)) {
-        unlink($chemincover);
+        unlink($basenameWeb . $chemincover);
     }
 }
 function del_soundby($cheminsound)
 {
+    include 'config.php';
     if (!empty($cheminimage)) {
-        unlink($cheminimage);
+        unlink($basenameWeb . $cheminimage);
     }
 }
+
 
 // fonction global
 function deletemusiqueby($id)
 {
-    include "config.php";
+    include 'config.php';
     //suppression des images et du son via l'id
-    selectsoundby($id);
+
     selectimageby($id);
-    del_soundby($id);
-    del_coverby($id);
+    del_soundby(selectsoundby($id));
+    del_coverby(selectimageby($id));
 
     //supprimer l'element de la BD via son id
     try {
@@ -39,3 +42,4 @@ function deletemusiqueby($id)
         echo "Message d'erreur : " . $e->getMessage() . "<br />";
     }
 }
+deletemusiqueby($_GET['Id']);

@@ -23,7 +23,7 @@
             <form method='POST' enctype='multipart/form-data' action='add_bis.php'>
                 <!-- 2 premiers champs artiste et  titre-->
                 <div class='row mb-3'>
-                    <div class='co'>
+                    <div class='col'>
                         <label for='Titre'>Titre</label>
                         <input name='Titre' type='text' class='form-control' id='Titre' required>
                     </div>

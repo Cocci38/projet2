@@ -1,6 +1,7 @@
 <?php
 include 'config.php';
 $liste = select_All();
+
 foreach ($liste as $ligne) {
    echo "<div class='container'>";
    $compteur = $ligne['Id'];
@@ -57,6 +58,12 @@ foreach ($liste as $ligne) {
                               </audio>
                            </p>
                         </div>
+                        <div class='col'>
+                           <p>
+                           <a href='delete.php?Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
+                           <a href='modifier.php?Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-warning me-md-2 float-end btn-lg'><i class='bi bi-pencil'></i></button></a>
+                        </p>
+                    </div>
                      </div>
                   </div>
                </div>

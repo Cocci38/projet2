@@ -77,7 +77,7 @@
                         </div>
                         <div class='col'>
                             <p>
-                            <a href='delete.php?id=^$><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
+                            <a href='supprimer'pagedeconfirmation.php?id=><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
                             <a href='modifier'modifier.php?id=><button type='button' class='btn btn-outline-warning me-md-2 float-end btn-lg'><i class='bi bi-pencil'></i></button></a>
                             </p>
                         </div>

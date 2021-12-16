@@ -63,9 +63,7 @@ function select_by_Id($id)
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connexion réussie<br />';
 
-        echo 'Sélection des roles ordonnés par ordre alphabétique <br />';
         $sql = "SELECT * FROM Musique WHERE id=$id";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
@@ -83,13 +81,11 @@ function selectsoundby($id)
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connexion réussie<br />';
-        echo 'Sélection des roles ordonnés par ordre alphabétique <br />';
-        $sql = "SELECT cover file FROM Musique WHERE id=$id";
+        $sql = "SELECT Sound FROM Musique WHERE id=$id";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
-        return $resultat['sound'];
+        return $resultat['Sound'];
         $codb = null;
     } catch (PDOException $e) {
         return "Message d'erreur : " . $e->getMessage() . "<br />";
@@ -102,13 +98,11 @@ function selectimageby($id)
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connexion réussie<br />';
-
-        $sql = "SELECT cover file FROM Musique WHERE id=$id";
+        $sql = "SELECT Cover FROM Musique WHERE id=$id";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
-        return $resultat['image'];
+        return $resultat['Cover'];
         $codb = null;
     } catch (PDOException $e) {
         return "Message d'erreur : " . $e->getMessage() . "<br />";
