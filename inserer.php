@@ -23,27 +23,27 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="titre">Titre</label>
-                        <input type="text" class="form-control" id="titre" required>
+                        <input type="text" class="form-control" id="Titre" required>
                     </div>
                     <div class="col">
                         <label for="artiste">Artiste</label>
-                        <input type="text" class="form-control" id="artiste">
+                        <input type="text" class="form-control" id="Artiste">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="album">Album</label>
-                        <input type="text" class="form-control" id="album">
+                        <label for="Album">Album</label>
+                        <input type="text" class="form-control" id="Album">
                     </div>
                     <div class="col">
                         <label for="genre">Genre</label>
-                        <input type="text" class="form-control" id="genre">
+                        <input type="text" class="form-control" id="Genre">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <div class="image-upload">
-                            <label for="sound">
+                            <label for="Sound">
                                 <img src=img\sound2.png width="100px" />
                             </label>
 
@@ -52,11 +52,11 @@
                     </div>
                     <div class="col">
                         <div class="image-upload">
-                            <label for="cover">
+                            <label for="Cover">
                                 <img src=img\cover1.png width="100px" />
                             </label>
 
-                            <input id="cover" type="file" required />
+                            <input id="Cover" type="file" required />
                         </div>
                     </div>
                 </div>

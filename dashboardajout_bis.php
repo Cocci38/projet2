@@ -47,78 +47,11 @@ include('select.php') ?>
    <main>
       <?php
       if (select_Max_id() == 0) {
-         echo "<div class=\"container py-4\">
-         <div class=\"h-100 p-5 bg-light border rounded-3\">
-            <div class=\"d-grid gap-2 col-6 mx-auto\">
-               <a href=\"inserer.php\"><button type=\"button\" class=\"btn btn-outline-secondary fs-4\"><i class=\"bi bi-music-note\"></i> Ajouter <i class=\"bi bi-music-note\"></i></button></a>
-            </div>
-         </div>
-      </div>";
+         include "container_dashboard_list_vide.php";
       } else {
-         $liste = select_All();
-         echo "<div class=\"container\">";
-         foreach ($liste as $ligne) {
-            $compteur = $ligne['Id'];
-            echo "<div class='accordion' id='accordionExample'>";
-               if ($compteur == 1) {
-                  $btn_class = "accordion-button";
-                  $div_class = "accordion-collapse collapse show";
-                  $btn_expended = "arial-expended=\'true\'";
-               } else {
-                  $btn_class = "accordion-button collapsed";
-                  $div_class = "accordion-collapse collapse";
-                  $btn_expended = "arial-expended=\'false\'";
-               }
-
-               echo "<div class=\'accordion-item\'>
-                           <h2 class=\'accordion-header\' id=\'heading$compteur\'>
-                              <button class=\'$btn_class\' type=\'button\' data-bs-toggle=\'collapse\' data-bs-target=\'#collapse$compteur\' $btn_expended aria-controls=\'collapse$compteur\'>";
-               echo $ligne['Titre'];
-               echo "</button>
-                           </h2>
-                           <div id=\'collapse$compteur\' class=\'$div_class\' aria-labelledby=\'heading$compteur\' data-bs-parent=\'#accordionExample\'>
-                              <div class=\'accordion-body\'>
-                                 <div class=\'container\'>
-                                       <div class=\'row\'>
-                                          <div class=\'col\'>
-                                             <p>
-                                                <strong>" . $ligne['Artiste'] . "</strong>                                                
-                                             </p>
-                                          </div>
-                                          <div class=\'col\'>
-                                             <p>
-                                                <strong>" . $ligne['Album'] . "</strong>
-                                             </p>
-                                          </div>
-                                          </div>
-                                       <div class=\'row\'>
-                                          <div class=\'col\'>
-                                             <p>
-                                                <strong>" . $ligne['Genre'] . "</strong>
-                                             </p>
-                                          </div>
-                                          <div class=\'col\'>
-                                             <p>
-               <strong><img src='";
-               $vide = "img/cover1.png>";
-               echo (empty($ligne['Cover'])) ? $vide : $ligne['Cover'];
-               echo "</strong>
-                                             </p>
-                                          </div>
-                                       </div>
-                                       <div class=\'row\'>
-                                          <div class=\'col\'>
-                                             <p>
-                                                   <strong><audio title=\'titreadefinir\' preload=\'auto\' controls loop><source src=\'sourceadefinir.mp3 type=\'audio/mp3\'></audio>   $compteur</strong>
-                                             </p>
-                                          </div>
-                                       </div>
-                                 </div>
-                              </div>
-                           </div>
-                 </div>";
-         }
+         include "container_dashboard_list.php";
       }
+
       ?>
       </div>
       </div>

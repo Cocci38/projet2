@@ -20,7 +20,6 @@ function select_Max_id()
         $resultat2 = $prepare2->fetch(PDO::FETCH_ASSOC);
         if ($resultat2['nb'] > 1) {
         } else {
-       
         }
         //version mbase sur le max
         $sql = "SELECT max(id) as id FROM Musique";
@@ -45,9 +44,6 @@ function select_All()
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connexion réussie<br />';
-
-        echo '<br />';
         $sql = "SELECT * FROM Musique ORDER BY Id ASC";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
@@ -118,6 +114,3 @@ function selectimageby($id)
         return "Message d'erreur : " . $e->getMessage() . "<br />";
     }
 }
-
-
-

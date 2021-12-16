@@ -14,10 +14,10 @@
 </head>
 
 <body>
-<?php 
+    <?php
     include 'nav.php';
-        include "select.php";
- ?>
+    include "select.php";
+    ?>
     <!--cas page d'acceuil-->
 
     <!--connection a la BD Musique-->
@@ -31,7 +31,7 @@
         $tableau = select_All();
         echo "<div class='accordion' id='accordionExample'>";
         foreach ($tableau as $ligne) {
-            $compteur = $ligne['id'];
+            $compteur = $ligne['Id'];
             if ($compteur == 1) {
                 $btn_class = "accordion-button";
                 $div_class = "accordion-collapse collapse show";
