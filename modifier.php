@@ -15,30 +15,33 @@
     <?php
     include 'nav.php';
     include 'select.php';
-
+    if ($_GET['Id']) {
+        echo "||" . $_GET['Id'] . "||";
+    }
     $musicmodif = select_by_Id($_GET['Id']);
+
     ?>
     <div class='container'>
         <h4>Formulaire de modification de musique</h4>
         <form method='POST' enctype='multipart/form-data' action=''>
             <div class='row mb-3'>
                 <div class='col'>
-                    <label for='Titre'><?= $musicmodif['Titre'] ?></label>
-                    <input name='Titre' type='text' class='form-control' id='Titre' required>
+                    <label for='Titre'>Titre</label>
+                    <input name='Titre' type='text' class='form-control' id='Titre' required value=<?= $musicmodif['Titre'] ?>'>
                 </div>
                 <div class='col'>
-                    <label for='Artiste'><?= $musicmodif['Artiste'] ?></label>
-                    <input name='Artiste' type='text' class='form-control' id='Artiste'>
+                    <label for='Artiste'>Artiste</label>
+                    <input name='Artiste' type='text' class='form-control' id='Artiste' value='<?= $musicmodif['Artiste'] ?>'>
                 </div>
             </div>
             <div class='row mb-3'>
                 <div class='col'>
-                    <label for='Album'><?= $musicmodif['Album'] ?></label>
-                    <input name='Album' type='text' class='form-control' id='album'>
+                    <label for='Album'>Album</label>
+                    <input name='Album' type='text' class='form-control' id='album' value='<?= $musicmodif['Album'] ?>'>
                 </div>
                 <div class='col'>
-                    <label for='genre'><?= $musicmodif['Genre'] ?></label>
-                    <input name='Genre' type='text' class='form-control' id='Genre'>
+                    <label for='genre'>Genre</label>
+                    <input name='Genre' type='text' class='form-control' id='Genre' value='<?= $musicmodif['Genre'] ?>'>
                 </div>
             </div>
             <div class='row mb-3'>

@@ -67,7 +67,8 @@ function select_by_Id($id)
         $sql = "SELECT * FROM Musique WHERE id=$id";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
-        $resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
+        $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
+
         return $resultat;
         $codb = null;
     } catch (PDOException $e) {
