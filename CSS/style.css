@@ -48,3 +48,7 @@ img {
 .img-fluid {
     width: 40px;
 }
+
+@media(max-width:767px){
+    
+}
