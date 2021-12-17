@@ -38,7 +38,7 @@
       if (isset($_POST['Etat'])) {
          switch ($_POST['Etat']) {
             case 'ADD':
-               include 'add_bis.php';
+               include 'add.php';
                echo MSG_SUCCESS_ADD_MUSIC;
                include 'container_dashboard_list.php';
                // include 'container_dashboard_list.php';
