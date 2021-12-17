@@ -17,7 +17,16 @@ foreach ($liste as $ligne) {
       $div_class = "accordion-collapse collapse";
       $btn_expended = "arial-expended='false'";
    }
-
+   echo "
+   <div class='row'>
+   <div class='col order-last'>
+</div>
+   <div class='col text-center'>
+<a href='inserer.php'><button type='button' class='btn btn-light btn-lg border'><img src='img\sound2.png' class='img-fluid' alt='Bouton Ajouter'> Ajouter</button></a>
+</div>
+<div class='col order-first'>
+   </div>
+</div>";
    echo "<div class='accordion-item'>
          <h2 class='accordion-header' id='heading$compteur'>
             <button class='$btn_class' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>" . $ligne['Titre'] . "</button>
