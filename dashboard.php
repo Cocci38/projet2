@@ -18,7 +18,7 @@
    <?php
    include 'nav.php';
    include 'select.php';
-      include 'message.php';
+   include 'message.php';
    ?>
    <main>
       <?php
@@ -50,9 +50,11 @@
       } else {
 
          if (select_Max_id() == 0) {
-
             echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+            include 'container_dashboard_list_vide.php';
          } else {
+
+            echo MSG_WARNING_MUSIC_NOT_SELECTIONNED;
             include 'container_dashboard_list.php';
          }
       } ?>

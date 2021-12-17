@@ -18,10 +18,8 @@ function select_Max_id()
         $resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
         //test si le tableau est vide
         if (isset($resultat['max(id)'])) {
-            echo "||valeur retourner ||-->" . $resultat['max(id)'];
             return $resultat['max(id)'];
         } else {
-            echo "||valeur retourner ||-->0";
             return 0;
         }
         $codb = null;
@@ -31,6 +29,28 @@ function select_Max_id()
     }
 }
 
+function select_Ele()
+{
+    include 'config.php';
+
+
+    try {
+        $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo 'Connexion réussie<br />';
+
+        echo '<br />';
+        $sql = "SELECT * FROM Musique ORDER BY Id ASC";
+        $prepare = $codb->prepare($sql);
+        $prepare->execute();
+        $resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
+        return $resultat;
+        $codb = null;
+    } catch (PDOException $e) {
+
+        return "Message d'erreur : " . $e->getMessage() . "<br />";
+    }
+}
 // select ALL
 function select_All()
 {
