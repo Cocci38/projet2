@@ -3,6 +3,7 @@ $basenameWeb = "";
 $servername = 'localhost';
 $username = 'root';
 $password = '';
+$table ='musique';
 $dbname = 'MaMusique';
 $namedb = 'MaMusique';
 $rep_sound = "sound/";

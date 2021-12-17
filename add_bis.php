@@ -4,7 +4,7 @@ function addMusique()
 {
 
         include('config.php');
-        include('select.php');
+        //        include('select.php');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // définition de l'espace destiné à recevoir les fichiers
@@ -13,20 +13,7 @@ function addMusique()
                 //ogg|mp3|mp4|m4a|wav|wma
                 $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
 
-                echo "</br>";
-                echo "<h1>ELEMENTS RECUPERER dans la base</h1></br>";
-                echo "||TITRE{" . $_POST['Titre'] . "}||<br>";
-                echo "||Album{" . $_POST['Album'] . "}||<br>";
-                echo "||Artiste{" . $_POST['Artiste'] . "}||<br>";
-                echo "||Genre{" . $_POST['Genre'] . "}||<br>";
-                echo "<h1>ELEMENTS FICHIERS RECUPERER la base</h1></br>";
-                echo "||Cover{" . $_FILES['Cover']["name"] . "}||<br>";
-                echo "||Sound{" . $_FILES['Sound']['name'] . "}||<br>";
-                echo "<br>";
-
-                //le titre ne peux etre vide (imposer par le formulaire)
-                // tester 
-                // si un fichier macover a bien été transféré
+             
                 if (empty($_FILES["Cover"]["name"])) {
                         $chemincover = "";
                 } elseif (is_uploaded_file($_FILES["Cover"]["tmp_name"])) {
@@ -35,7 +22,7 @@ function addMusique()
                         // autrement dit tout ce qu'il y a après le dernier point (inclus)
                         $moncover = $_FILES["Cover"]["name"];
                         $extension = substr($moncover, strrpos($moncover, "."));
-                        echo "||" . $extension . "||" . $moncover . "||</br>";
+                        // echo "||" . $extension . "||" . $moncover . "||</br>";
                         // Contrôle de l'extension du fichier
                         if (!(in_array($extension, $extensionsAutorisees_image))) {
                                 die("Le fichier n'a pas l'extension img attendue");
@@ -47,7 +34,6 @@ function addMusique()
                         $chemincover = "";
                 }
 
-
                 if (empty($_FILES["Sound"]["name"])) {
                         $cheminmusique = "";
                 } elseif (is_uploaded_file($_FILES["Sound"]["tmp_name"])) {
@@ -56,7 +42,7 @@ function addMusique()
                         // autrement dit tout ce qu'il y a après le dernier point (inclus)
                         $mamusique = $_FILES["Sound"]["name"];
                         $extension = substr($mamusique, strrpos($mamusique, "."));
-                        echo "||" . $extension . "||" . $mamusique . "||</br>";
+                        /*echo "||" . $extension . "||" . $mamusique . "||</br>";*/
                         // Contrôle de l'extension du fichier
                         if (!(in_array($extension, $extensionsAutorisees_sound))) {
                                 die("Le fichier n'a pas l'extension audio attendue");
@@ -68,15 +54,15 @@ function addMusique()
                         $cheminmusique = "";
                 }
 
-                echo "<h1>ELEMENTS FICHIERS à INSERER la base</h1></br>";
+                /*echo "<h1>ELEMENTS FICHIERS à INSERER la base</h1></br>";
                 echo "||Cover{" . $chemincover . "}||<br>";
                 echo "||Sound{" . $cheminmusique . "}||<br>";
-                echo "<br>";
+                echo "<br>";*/
 
                 try {
                         $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        echo 'Connexion réussie<br />';
+                        //echo 'Connexion réussie<br />';
                         $Cover = $chemincover;
                         $Sound = $cheminmusique;
                         $sql = "INSERT INTO Musique(Titre,Album,Artiste,Genre,Cover,Sound)
