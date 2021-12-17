@@ -4,6 +4,10 @@ define("MSG_WARNING_LISTE_MUSIQUE_EMPTY", "<div class='m-4'>
      <strong><center><h2>la Liste de musique est vide</h2></center></strong>
      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
  </div>
+</div><div class=\"container py-4\">
+<div class=\"d-grid gap-2 col-3\">
+<a href=\"inserer.php\"><button type=\"button\" class=\"btn btn-light btn-lg position-absolute top-50 start-50 translate-middle border\"><img src=\"img\sound2.png\"> Ajouter</button></a>
+</div>
 </div>");
 define("MSG_WARNING_MUSIC_NOT_SELECTIONNED", "<div class='m-4'>
  <div class='alert alert-warning alert-dismissible fade show'>
