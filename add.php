@@ -13,7 +13,7 @@ function addMusique()
                 //ogg|mp3|mp4|m4a|wav|wma
                 $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
 
-             
+
                 if (empty($_FILES["Cover"]["name"])) {
                         $chemincover = "";
                 } elseif (is_uploaded_file($_FILES["Cover"]["tmp_name"])) {
@@ -32,8 +32,7 @@ function addMusique()
                         }
                 } else {
                         $chemincover = "";
-                }
-
+                
                 if (empty($_FILES["Sound"]["name"])) {
                         $cheminmusique = "";
                 } elseif (is_uploaded_file($_FILES["Sound"]["tmp_name"])) {
