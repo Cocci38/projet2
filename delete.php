@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-include 'select.php';
+
 
 
 function del_coverby($chemincover)
@@ -23,10 +23,22 @@ function del_soundby($cheminsound)
 function deletemusiqueby($id)
 {
     include 'config.php';
+    include 'message.php';
+    include 'select.php';
     //suppression des images et du son via l'id
 
-    del_soundby(selectsoundby($id));
-    del_coverby(selectimageby($id));
+    try {
+        del_soundby(selectsoundby($id));
+    } catch (\Throwable $th) {
+        echo MSG_PROBLEM_DEL_MUSIC . "music";
+    }
+
+    try {
+        del_coverby(selectimageby($id));
+    } catch (\Throwable $th) {
+        echo MSG_PROBLEM_DEL_MUSIC . "cover";
+    }
+    
 
     //supprimer l'element de la BD via son id
     try {

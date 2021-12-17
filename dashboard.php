@@ -18,13 +18,43 @@
    <?php
    include 'nav.php';
    include 'select.php';
+      include 'message.php';
    ?>
    <main>
       <?php
-      if (select_Max_id() == 0) {
-         include 'container_dashboard_list_vide.php';
+      if (isset($_GET['Id'])) {
+         include 'delete.php';
+         echo MSG_SUCCESS_DEL_MUSIC;
+         if (select_Max_id() == 0) {
+            echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+         } else {
+            include 'container_dashboard_list.php';
+         }
+      }
+      if (isset($_POST['Etat'])) {
+         switch ($_POST['Etat']) {
+            case 'ADD':
+               include 'add_bis.php';
+               echo MSG_SUCCESS_ADD_MUSIC;
+               include 'container_dashboard_list.php';
+               break;
+            case 'UP':
+               include 'modif.php';
+               echo MSG_SUCCESS_UP_MUSIC;
+               include 'container_dashboard_list.php';
+               break;
+            default:
+               include 'container_dashboard_list.php';
+               break;
+         }
       } else {
-         include 'container_dashboard_list.php';
+
+         if (select_Max_id() == 0) {
+
+            echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+         } else {
+            include 'container_dashboard_list.php';
+         }
       } ?>
    </main>
 </body>
