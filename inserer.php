@@ -65,7 +65,7 @@
         <div class='container'>
             <button type='submit' class='btn text-white' style='background-color: #16ade1;'>Valider</button>
             <button type='cancel' class='btn text-white' style='background-color: #1b3954;'>Annuler</button>
-            <input id='Etat' name='Etat' type='hidden' value='add'>
+            <input id='Etat' name='Etat' type='hidden' value='ADD'>
         </div>
         </form>
         </div>

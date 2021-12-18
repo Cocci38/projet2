@@ -1,3 +1,27 @@
+:root{
+    --main-bg: #1b3954;
+}
+.main-bg{
+    background-color: var(--main-bg) !important;
+}
+input:focus,
+button:focus{
+    border:1px solid var(--main-bg) !important;
+    box-shadow: none !important;
+}
+.form-check-input:checked {
+    background-color: var(--main-bg) !important;
+    border-color: var(--main-bg) !important;
+}
+.cgv:checked {
+    background-color: var(--main-bg) !important;
+    border-color: var(--main-bg) !important;
+}
+.card,
+.btn,
+input{
+    border-radius: 0 !important;
+}
 audio {
     width: 100%;
 }
@@ -22,5 +46,9 @@ img {
     border-color: #1b3954!important;
 }
 .img-fluid {
-    width: 50px;
+    width: 40px;
+}
+
+@media(max-width:767px){
+    
 }

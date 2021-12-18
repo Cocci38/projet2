@@ -17,42 +17,50 @@
 <body>
    <?php
    include 'nav.php';
+   include 'tools.php';
    include 'select.php';
    include 'message.php';
    ?>
    <main>
       <?php
+
       if (isset($_GET['Id'])) {
          include 'delete.php';
-         echo MSG_SUCCESS_DEL_MUSIC;
          if (select_Max_id() == 0) {
-            echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+            include 'container_dashboard_list_vide.php';
          } else {
             include 'container_dashboard_list.php';
+            echo MSG_SUCCESS_DEL_MUSIC;
          }
       }
+
+
       if (isset($_POST['Etat'])) {
          switch ($_POST['Etat']) {
             case 'ADD':
-               include 'add_bis.php';
+               include 'add.php';
                echo MSG_SUCCESS_ADD_MUSIC;
                include 'container_dashboard_list.php';
+               // include 'container_dashboard_list.php';
                break;
             case 'UP':
                include 'modif.php';
                echo MSG_SUCCESS_UP_MUSIC;
-               include 'container_dashboard_list.php';
+               // include 'container_dashboard_list.php';
+               break;
+            case 'DEL':
+
                break;
             default:
                include 'container_dashboard_list.php';
                break;
          }
       } else {
-
          if (select_Max_id() == 0) {
-
             echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+            include 'container_dashboard_list_vide.php';
          } else {
+            //echo MSG_WARNING_MUSIC_NOT_SELECTIONNED;
             include 'container_dashboard_list.php';
          }
       } ?>

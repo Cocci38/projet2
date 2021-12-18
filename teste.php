@@ -17,8 +17,14 @@
     <main>
     <div class="container">
         <div class="h-100 p-5 bg-light border rounded-3">
-            <div class="position-relative">
+            <div class="row">
+                <div class="col order-last">
+            </div>
+                <div class="col text-center">
             <a href="inserer.php"><button type="button" class="btn btn-light btn-lg border"><img src="img\sound2.png" class="img-fluid" alt="Bouton Ajouter"> Ajouter</button></a>
+            </div>
+            <div class="col order-first">
+                </div>
             </div>
     <?php
     $nbmorceau = 12;

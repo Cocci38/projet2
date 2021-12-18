@@ -1,3 +1,32 @@
+<?php
+function select_Max_id_UP()
+{
+    include 'config.php';
+
+    try {
+
+        $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        /*$sql = "SELECT AUTO_INCREMENT as Id FROM Musique";
+        $prepare = $codb->prepare($sql);
+        $prepare->execute();
+        $auto = $prepare->fetch(PDO::FETCH_ASSOC);*/
+        $sql2 = "SELECT max(id) as Id FROM Musique";
+        $prepare2 = $codb->prepare($sql2);
+        $prepare2->execute();
+        $max = $prepare2->fetch(PDO::FETCH_ASSOC);
+        if ($max['Id'] == NULL) {
+            return 0;
+        } else {
+            return $max['Id'];
+        }
+        $codb = null;
+    } catch (PDOException $e) {
+
+        return "Message d'erreur : " . $e->getMessage() . "<br />";
+    }
+} ?>
 <!DOCTYPE html>
 <html lang='fr'>
 
@@ -14,11 +43,11 @@
 <body>
     <?php
     include 'nav.php';
-    include 'select.php';
+    include 'tools.php';
     include 'message.php';
     if (empty($_GET['Id'])) {
         echo MSG_WARNING_MUSIC_NOT_SELECTIONNED;
-        if (select_Max_id() == 0) {
+        if (select_Max_id_UP() == 0) {
             include 'container_dashboard_list_vide.php';
         } else {
             include 'container_dashboard_list.php';
