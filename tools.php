@@ -19,6 +19,7 @@ function select_Max_id()
         if ($max['Id'] == NULL) {
             return 0;
         } else {
+            echo "||Tools id-->" . $max['Id'] . "||";
             return $max['Id'];
         }
         $codb = null;

@@ -71,8 +71,8 @@ foreach ($liste as $ligne) {
                   </div>
                   <div class='col'>
                      <p>
-                        <a href='dashboard.php?Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
-                        <a href='dashboard.php?Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-warning me-md-2 float-end btn-lg'><i class='bi bi-pencil'></i></button></a>
+                        <a href='dashboard.php?Etat=DEL&Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
+                        <a href='dashboard.php?Eta=UP&Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-warning me-md-2 float-end btn-lg'><i class='bi bi-pencil'></i></button></a>
                      </p>
                   </div>
                </div>

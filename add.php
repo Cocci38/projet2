@@ -1,79 +1,95 @@
 <?php
-function addMusique()
 
-{
+include 'config.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        include('config.php');
-        //        include('select.php');
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-                // définition de l'espace destiné à recevoir les fichiers
-                $repository = $_SERVER["DOCUMENT_ROOT"] . "/p2/projet2/";
-                $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
-                //ogg|mp3|mp4|m4a|wav|wma
-                $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
-
-
-                if (empty($_FILES["Cover"]["name"])) {
-                        $chemincover = "";
-                } elseif (is_uploaded_file($_FILES["Cover"]["tmp_name"])) {
-                        // recupération de l'extension du fichier
-                        $next = select_Max_id() + 1;
-                        // autrement dit tout ce qu'il y a après le dernier point (inclus)
-                        $moncover = $_FILES["Cover"]["name"];
-                        $extension = substr($moncover, strrpos($moncover, "."));
-                        // echo "||" . $extension . "||" . $moncover . "||</br>";
-                        // Contrôle de l'extension du fichier
-                        if (!(in_array($extension, $extensionsAutorisees_image))) {
-                                die("Le fichier n'a pas l'extension img attendue");
-                        } else {
-                                $chemincover = "image/image_" . $next . $extension;
-                                rename($_FILES["Cover"]["tmp_name"], $repository . $chemincover);
-                        }
-                } else {
-                        $chemincover = "";
-                
-                if (empty($_FILES["Sound"]["name"])) {
-                        $cheminmusique = "";
-                } elseif (is_uploaded_file($_FILES["Sound"]["tmp_name"])) {
-                        // recupération de l'extension du fichier
-                        $next = select_Max_id() + 1;
-                        // autrement dit tout ce qu'il y a après le dernier point (inclus)
-                        $mamusique = $_FILES["Sound"]["name"];
-                        $extension = substr($mamusique, strrpos($mamusique, "."));
-                        /*echo "||" . $extension . "||" . $mamusique . "||</br>";*/
-                        // Contrôle de l'extension du fichier
-                        if (!(in_array($extension, $extensionsAutorisees_sound))) {
-                                die("Le fichier n'a pas l'extension audio attendue");
-                        } else {
-                                $cheminmusique = "sound/musique_" . $next . $extension;
-                                rename($_FILES["Sound"]["tmp_name"], $repository . $cheminmusique);
-                        }
-                } else {
-                        $cheminmusique = "";
-                }
-
-                /*echo "<h1>ELEMENTS FICHIERS à INSERER la base</h1></br>";
-                echo "||Cover{" . $chemincover . "}||<br>";
-                echo "||Sound{" . $cheminmusique . "}||<br>";
-                echo "<br>";*/
-
-                try {
-                        $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
-                        $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        //echo 'Connexion réussie<br />';
-                        $Cover = $chemincover;
-                        $Sound = $cheminmusique;
-                        $sql = "INSERT INTO Musique(Titre,Album,Artiste,Genre,Cover,Sound)
-                                VALUES('" . addslashes($_POST['Titre']) . "','" . addslashes($_POST['Album']) . "','" . addslashes($_POST['Artiste']) . "','" . addslashes($_POST['Genre']) . "','" . addslashes($Cover) . "','" . addslashes($Sound) . "')";
-                        $codb->exec($sql);
-                        $codb = null;
-                } catch (PDOException $e) {
-                        echo "Message d'erreur : " . $e->getMessage() . "<br />";
-                }
+        // définition de l'espace destiné à recevoir les fichiers
+        echo "ADD POST<br>";
+        $repository = $_SERVER["DOCUMENT_ROOT"] . "/p2/projet2/";
+        $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
+        //ogg|mp3|mp4|m4a|wav|wma
+        $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
+        if (empty($_POST['Titre'])) {
+                $form['Titre'] =  "Titre à definir";
+        } else {
+                $form['Titre'] = $_POST['Titre'];
         }
-}
 
+        if (empty($_POST['Album'])) {
+                $form['Album'] = "";
+        } else {
+                $form['Album'] = $_POST['Album'];
+        }
 
-addMusique();
+        if (empty($_POST['Artiste'])) {
+                $form['Artiste'] = "";
+        } else {
+                $form['Artiste'] = $_POST['Artiste'];
+        }
+
+        if (empty($_POST['Genre'])) {
+                $form['Genre'] = "";
+        } else {
+                $form['Genre'] = $_POST['Genre'];
+        }
+
+        if (empty($_FILES['Cover']['name'])) {
+                $form['Cover'] = "";
+        } elseif (is_uploaded_file($_FILES['Cover']['tmp_name'])) {
+                // recupération de l'extension du fichier
+                $next = select_Max_id() + 1;
+                // autrement dit tout ce qu'il y a après le dernier point (inclus)
+                $moncover = $_FILES['Cover']['name'];
+                $extension = substr($moncover, strrpos($moncover, '.'));
+                // echo '||' . $extension . '||' . $moncover . '||</br>';
+                // Contrôle de l'extension du fichier
+                if (!(in_array($extension, $extensionsAutorisees_image))) {
+                        die("Le fichier n'a pas l'extension img attendue");
+                } else {
+                        $form['Cover'] = 'image/image_' . $next . $extension;
+                        rename($_FILES['Cover']['tmp_name'], $repository . $form['Cover']);
+                }
+        } else {
+                $form['Cover'] = "";
+        }
+        echo    $form['Cover'];
+
+        if (empty($_FILES['Sound']['name'])) {
+                $form['Sound'] = '';
+        } elseif (is_uploaded_file($_FILES['Sound']['tmp_name'])) {
+                // recupération de l'extension du fichier
+                $next = select_Max_id() + 1;
+                // autrement dit tout ce qu'il y a après le dernier point (inclus)
+                $mamusique = $_FILES['Sound']['name'];
+                $extension = substr($mamusique, strrpos($mamusique, '.'));
+                /*echo "||" . $extension . "||" . $mamusique . "||</br>";*/
+                // Contrôle de l'extension du fichier
+                if (!(in_array($extension, $extensionsAutorisees_sound))) {
+                        die(MSG_PROBLEM_ADD_MUSIC);
+                } else {
+                        $form['Sound'] = 'sound/musique_' . $next . $extension;
+                        rename($_FILES['Sound']['tmp_name'], $repository . $form['Sound']);
+                }
+        } else {
+                $form['Sound'] = "";
+        }
+        try {
+                $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
+                $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                echo 'Connexion réussie<br />';
+
+                $sql =  "INSERT INTO Musique(Titre,Album,Artiste,Genre,Cover,Sound)
+                                 VALUES(:Titre, :Album, :Artiste, :Genre, :Cover, :Sound)";
+                $prepare = $codb->prepare($sql);
+                $prepare->bindParam(':Titre', $form['Titre']);
+                $prepare->bindParam(':Album', $form['Album']);
+                $prepare->bindParam(':Artiste', $form['Artiste']);
+                $prepare->bindParam(':Genre', $form['Genre']);
+                $prepare->bindParam(':Cover', $form['Cover']);
+                $prepare->bindParam(':Sound', $form['Sound']);
+                $prepare->execute();
+                echo 'Insertion effectuée<br />';
+        } catch (PDOException $e) {
+                        echo "Message d'erreur : " . $e->getMessage() . "<br />";
+        }
 }

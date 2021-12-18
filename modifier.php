@@ -19,6 +19,7 @@ function select_Max_id_UP()
         if ($max['Id'] == NULL) {
             return 0;
         } else {
+            echo "||Modifier id-->" . $max['Id'] . "||";
             return $max['Id'];
         }
         $codb = null;

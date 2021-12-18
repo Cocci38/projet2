@@ -1,11 +1,12 @@
 <?php
 $basenameWeb = "";
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$table ='musique';
-$dbname = 'MaMusique';
-$namedb = 'MaMusique';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$table = "musique";
+//define('DBname','mamusique');
+$dbname = "mamusique";
+$namedb = "mamusique";
 $rep_sound = "sound/";
 $rep_image = "image/";
 $baserelative = 'p2/projet2/';

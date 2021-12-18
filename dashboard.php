@@ -24,42 +24,69 @@
    <main>
       <?php
 
-      if (isset($_GET['Id'])) {
-         include 'delete.php';
-         if (select_Max_id() == 0) {
-            include 'container_dashboard_list_vide.php';
-         } else {
-            include 'container_dashboard_list.php';
-            echo MSG_SUCCESS_DEL_MUSIC;
+      if (isset($_GET['Etat'])) {
+         switch ($_GET(['Etat'])) {
+            case 'DEL':
+               echo 'ETAT GET ->DEL';
+               include 'delete.php';
+               if (select_Max_id() == 0) {
+                  echo 'ETAT GET ->DEL MAX_ID null';
+                  include 'container_dashboard_list_vide.php';
+                  break;
+               } else {
+                  echo 'ETAT GET ->DEL MAX_ID non null';
+                  include 'container_dashboard_list.php';
+                  echo MSG_SUCCESS_DEL_MUSIC;
+                  break;
+               }
+            case 'UP':
+               echo 'ETAT GET ->UP';
+               include 'modif_form.php';
+               echo MSG_SUCCESS_DEL_MUSIC;
+               break;
+            default:
+               if (select_Max_id() == 0) {
+                  echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+                  include 'container_dashboard_list_vide.php';
+               } else {
+                  //echo MSG_WARNING_MUSIC_NOT_SELECTIONNED;
+                  include 'container_dashboard_list.php';
+               }
          }
       }
-
-
       if (isset($_POST['Etat'])) {
          switch ($_POST['Etat']) {
             case 'ADD':
+               echo 'ETAT POST ->ADD';
                include 'add.php';
                echo MSG_SUCCESS_ADD_MUSIC;
                include 'container_dashboard_list.php';
                // include 'container_dashboard_list.php';
                break;
             case 'UP':
-               include 'modif.php';
+               echo 'ETAT POST ->UP';
+               include 'update.php';
                echo MSG_SUCCESS_UP_MUSIC;
                // include 'container_dashboard_list.php';
                break;
             case 'DEL':
-
+               echo 'ETAT POST ->DEL';
                break;
             default:
+               echo 'ETAT POST ->DASH';
                include 'container_dashboard_list.php';
                break;
          }
+      
       } else {
+         echo 'ETAT GET ET GET -> non defini';
+         echo select_Max_id();
          if (select_Max_id() == 0) {
+            echo "ETAT GET ET POST Non defini et id_max= 0";
             echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
             include 'container_dashboard_list_vide.php';
          } else {
+            echo "ETAT GET ET POST Non defini et id_max= une valeur";
             //echo MSG_WARNING_MUSIC_NOT_SELECTIONNED;
             include 'container_dashboard_list.php';
          }
