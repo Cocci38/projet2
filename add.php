@@ -1,13 +1,11 @@
 <?php
 
 include 'config.php';
+require 'tools.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // définition de l'espace destiné à recevoir les fichiers
-        echo "ADD POST<br>";
         $repository = $_SERVER["DOCUMENT_ROOT"] . "/p2/projet2/";
         $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
-        
         $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
         if (empty($_POST['Titre'])) {
                 $form['Titre'] =  "Titre à definir";
@@ -54,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
                 $form['Cover'] = "";
         }
-        echo    $form['Cover'];
+       
 
         if (empty($_FILES['Sound']['name'])) {
                 $form['Sound'] = '';
@@ -80,10 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
                 $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                 $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo 'Connexion réussie<br />';
-
-                $sql =  "INSERT INTO Musique(Titre,Album,Artiste,Genre,Cover,Sound)
-                                 VALUES(:Titre, :Album, :Artiste, :Genre, :Cover, :Sound)";
+                $sql = "INSERT INTO Musique(Titre,Album,Artiste,Genre,Cover,Sound)
+                         VALUES(:Titre, :Album, :Artiste, :Genre, :Cover, :Sound)";
                 $prepare = $codb->prepare($sql);
                 $prepare->bindParam(':Titre', $form['Titre']);
                 $prepare->bindParam(':Album', $form['Album']);
@@ -92,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $prepare->bindParam(':Cover', $form['Cover']);
                 $prepare->bindParam(':Sound', $form['Sound']);
                 $prepare->execute();
-                echo 'Insertion effectuée<br />';
+         
         } catch (PDOException $e) {
                         echo "Message d'erreur : " . $e->getMessage() . "<br />";
         }

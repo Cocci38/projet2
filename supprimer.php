@@ -17,11 +17,14 @@
         <?php
         include 'nav.php';
         include 'message.php';
-        require 'tools.php'
+            require 'tools.php';
         ?>
         <main>
             <?php
-
+            if (isset($_GET['Id'])) {
+                include 'delete.php';
+                echo MSG_SUCCESS_DEL_MUSIC;
+            }
             if (select_Max_id() == 0) {
                 echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
                 include 'container_dashboard_list_vide.php';

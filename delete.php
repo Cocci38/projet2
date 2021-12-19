@@ -6,7 +6,6 @@
 // fonction global
 
 include 'config.php';
-include 'message.php';
 
 $id = $_GET['Id'];
 function del_chemin($chemin, $str)
@@ -18,10 +17,7 @@ function del_chemin($chemin, $str)
         }
     }
 }
-echo "avant effacement";
-del_chemin(selectElmentby('Sound', $id), 'sound');
-del_chemin(selectElmentby('Cover', $id), 'image');
-echo "apres effacement";
+
 
 try {
     $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
@@ -34,14 +30,4 @@ try {
 } catch (PDOException $e) {
     echo "Message d'erreur : " . $e->getMessage() . "<br />";
 }
-
-// deletemusiqueby($_GET['Id'], $_GET['Etat']);
-
-
-
-
-
-
-
-
 

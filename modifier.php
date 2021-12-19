@@ -44,17 +44,19 @@ function select_Max_id_UP()
 <body>
     <?php
     include 'nav.php';
-    include 'message.php';
-    require  'tools.php';
-    if (empty($_GET['Id'])) {
-        echo MSG_WARNING_MUSIC_NOT_SELECTIONNED;
-        if (select_Max_id() == 0) {
-            include 'container_dashboard_list_vide.php';
-        } else {
-            include 'container_dashboard_list.php';
-        }
+    require 'tools.php';
+    require 'message.php';
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        include 'update.php';
+        echo MSG_SUCCESS_UP_MUSIC;
+    }
+    if (select_Max_id() == 0) {
+        echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+        include 'container_dashboard_list_vide.php';
     } else {
-        include 'modif.php';
+        echo MSG_WARNING_MUSIC_NOT_SELECTIONNED;
+        include 'container_dashboard_list.php';
     }
     ?>
 </body>

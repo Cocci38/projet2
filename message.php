@@ -25,6 +25,11 @@ define("MSG_SUCCESS_DEL_MUSIC", "<div class='m-4'>
 <strong><center><h2>Musique supprimée</h2></center></strong>
 <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
 </div>");
+define("MSG_PROBLEM_ADD_MUSIC", "<div class='m-4'>
+ <div class='alert alert-danger alert-dismissible fade show'>
+<strong><center><h2>L'insertion à rencontrer un probème</h2></center></strong>
+<button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+</div>");
 define("MSG_PROBLEM_ADD_SOUND", "<div class='m-4'>
  <div class='alert alert-danger alert-dismissible fade show'>
 <strong><center><h2>L'insertion à rencontrer un probème</h2></center></strong>
