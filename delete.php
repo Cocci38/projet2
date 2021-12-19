@@ -26,8 +26,8 @@ try {
     $sql = "DELETE FROM Musique WHERE id=$id";
     $prepare = $codb->prepare($sql);
     $prepare->execute();
-    echo  'Musique effacé';
 } catch (PDOException $e) {
-    echo "Message d'erreur : " . $e->getMessage() . "<br />";
+    die(MSG_PROBLEM_DEL_MUSIC);
+    
 }
 

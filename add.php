@@ -4,9 +4,9 @@ include 'config.php';
 require 'tools.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $repository = $_SERVER["DOCUMENT_ROOT"] . "/p2/projet2/";
-        $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
-        $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
+        $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $baserelative;
+
+        
         if (empty($_POST['Titre'])) {
                 $form['Titre'] =  "Titre à definir";
         } else {
@@ -31,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $form['Genre'] = $_POST['Genre'];
         }
 
+
+        $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
         if (empty($_FILES['Cover']['name'])) {
                 $form['Cover'] = "";
         } elseif (is_uploaded_file($_FILES['Cover']['tmp_name'])) {
@@ -41,10 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // autrement dit tout ce qu'il y a après le dernier point (inclus)
                 $moncover = $_FILES['Cover']['name'];
                 $extension = substr($moncover, strrpos($moncover, '.'));
-                // echo '||' . $extension . '||' . $moncover . '||</br>';
+                //$extension1 = pathinfo($_FILES['Cover']['name'], PATHINFO_EXTENSION);
+                //echo '||' . $extension1 . '||' . $extension . '||</br>';
                 // Contrôle de l'extension du fichier
                 if (!(in_array($extension, $extensionsAutorisees_image))) {
-                        die("Le fichier n'a pas l'extension img attendue");
+                        die(MSG_PROBLEM_ADD_IMAGE);
                 } else {
                         $form['Cover'] = 'image/image_' . $next . $extension;
                         rename($_FILES['Cover']['tmp_name'], $repository . $form['Cover']);
@@ -52,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
                 $form['Cover'] = "";
         }
-       
 
+        $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
         if (empty($_FILES['Sound']['name'])) {
                 $form['Sound'] = '';
         } elseif (is_uploaded_file($_FILES['Sound']['tmp_name'])) {
@@ -64,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // autrement dit tout ce qu'il y a après le dernier point (inclus)
                 $mamusique = $_FILES['Sound']['name'];
                 $extension = substr($mamusique, strrpos($mamusique, '.'));
+                //$extension1 = pathinfo($_FILES['Sound']['name'],PATHINFO_EXTENSION);
                 /*echo "||" . $extension . "||" . $mamusique . "||</br>";*/
                 // Contrôle de l'extension du fichier
                 if (!(in_array($extension, $extensionsAutorisees_sound))) {

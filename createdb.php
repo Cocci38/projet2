@@ -2,7 +2,6 @@
 include "config.php";
 
 /*creation de la BD*/
-/*creation de la base de donnee DBname*/
 try {
     $connectdb = new PDO(
         "mysql:host=$servername",
@@ -16,15 +15,11 @@ try {
     echo "Message d'erreur : [" . $e->getMessage() . "]<br>:";
 }
 
+/*creation d'une table de musiques
 try {
     $connectdb = new PDO('mysql:host=' . $servername . ';dbname=' . $namedb, $username, $password);
     $connectdb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    
-    
-   /* $connectdb->beginTransaction();*/
-    /*creation de la table Musique*/
-    $sql1 = "CREATE TABLE Musique(
+    $sql = "CREATE TABLE Musique(
             Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             Titre VarCHAR(100) NOT NULL,
             Album VarCHAR(100) NOT NULL,
@@ -32,16 +27,15 @@ try {
             Genre VarCHAR(30) NOT NULL,
             Cover VarCHAR(255) NOT NULL,
             Sound Varchar(255) NOT NULL )";
-    $connectdb->exec($sql1);
+    $connectdb->exec($sql);
     echo 'Table Musique bien créée !<br />';
-    //$connectdb->commit();
-    //$connectdb = null;
+
 } catch (PDOException $e) {
     echo "Message d'erreur : [" . $e->getMessage() . "]<br>:";
 }
-
+ /**Creation de la table Inscription */
 try {
-    /**Creation de la table Inscription */
+   
     $connectdb = new PDO('mysql:host=' . $servername . ';dbname=' . $namedb, $username, $password);
     $connectdb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
