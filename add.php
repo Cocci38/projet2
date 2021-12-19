@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "ADD POST<br>";
         $repository = $_SERVER["DOCUMENT_ROOT"] . "/p2/projet2/";
         $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
-        //ogg|mp3|mp4|m4a|wav|wma
+        
         $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
         if (empty($_POST['Titre'])) {
                 $form['Titre'] =  "Titre à definir";
@@ -36,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($_FILES['Cover']['name'])) {
                 $form['Cover'] = "";
         } elseif (is_uploaded_file($_FILES['Cover']['tmp_name'])) {
+                // test si le repertoire de destination exist sinon il le crée
+                IsDir_or_CreateIt('image');
                 // recupération de l'extension du fichier
                 $next = select_Max_id() + 1;
                 // autrement dit tout ce qu'il y a après le dernier point (inclus)
@@ -57,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($_FILES['Sound']['name'])) {
                 $form['Sound'] = '';
         } elseif (is_uploaded_file($_FILES['Sound']['tmp_name'])) {
+                //test si le repertoire existe
+                IsDir_or_CreateIt('sound');
                 // recupération de l'extension du fichier
                 $next = select_Max_id() + 1;
                 // autrement dit tout ce qu'il y a après le dernier point (inclus)
@@ -65,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 /*echo "||" . $extension . "||" . $mamusique . "||</br>";*/
                 // Contrôle de l'extension du fichier
                 if (!(in_array($extension, $extensionsAutorisees_sound))) {
-                        die(MSG_PROBLEM_ADD_MUSIC);
+                        die(MSG_PROBLEM_ADD_SOUND);
                 } else {
                         $form['Sound'] = 'sound/musique_' . $next . $extension;
                         rename($_FILES['Sound']['tmp_name'], $repository . $form['Sound']);

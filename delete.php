@@ -46,7 +46,7 @@ function deletemusiqueby($id, $value)
             } catch (PDOException $e) {
                 echo "Message d'erreur : " . $e->getMessage() . "<br />";
             }
-
+            
             break;
 
         default:

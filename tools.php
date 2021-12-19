@@ -1,4 +1,18 @@
-<?php //select id Max
+<?php
+//test si un repertoire existe sinon il le crée
+function IsDir_or_CreateIt($path)
+{
+    if (is_dir($path)) {
+        return true;
+    } else {
+        if (mkdir($path)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+//select id Max
 function select_Max_id()
 {
     include 'config.php';
@@ -8,10 +22,6 @@ function select_Max_id()
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        /*$sql = "SELECT AUTO_INCREMENT as Id FROM Musique";
-        $prepare = $codb->prepare($sql);
-        $prepare->execute();
-        $auto = $prepare->fetch(PDO::FETCH_ASSOC);*/
         $sql2 = "SELECT max(id) as Id FROM Musique";
         $prepare2 = $codb->prepare($sql2);
         $prepare2->execute();
@@ -19,7 +29,6 @@ function select_Max_id()
         if ($max['Id'] == NULL) {
             return 0;
         } else {
-            echo "||Tools id-->" . $max['Id'] . "||";
             return $max['Id'];
         }
         $codb = null;
@@ -74,7 +83,7 @@ function select_by_Id($id)
         $sql = "SELECT * FROM Musique WHERE id=$id";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
-        $resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
+        $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
         return $resultat;
         $codb = null;
     } catch (PDOException $e) {

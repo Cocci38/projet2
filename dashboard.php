@@ -24,11 +24,12 @@
    <main>
       <?php
 
-      if (isset($_GET['Etat'])) {
+      if ((isset($_GET['Etat'])) && (!(empty($_GET['Etat'])))) {
          switch ($_GET(['Etat'])) {
             case 'DEL':
-               echo 'ETAT GET ->DEL';
+               echo 'ETAT GET -> DEL';
                include 'delete.php';
+               unset($_GET['Etat']);
                if (select_Max_id() == 0) {
                   echo 'ETAT GET ->DEL MAX_ID null';
                   include 'container_dashboard_list_vide.php';
@@ -42,7 +43,7 @@
             case 'UP':
                echo 'ETAT GET ->UP';
                include 'modif_form.php';
-               echo MSG_SUCCESS_DEL_MUSIC;
+               echo MSG_SUCCESS_UP_MUSIC;
                break;
             default:
                if (select_Max_id() == 0) {
@@ -73,16 +74,16 @@
                echo 'ETAT POST ->DEL';
                break;
             default:
-               echo 'ETAT POST ->DASH';
+               echo 'ETAT POST -> AUTRE';
                include 'container_dashboard_list.php';
                break;
          }
       
       } else {
-         echo 'ETAT GET ET GET -> non defini';
+         echo 'ETAT GET//POST --> non défini ET ID -> non Assigné';
          echo select_Max_id();
          if (select_Max_id() == 0) {
-            echo "ETAT GET ET POST Non defini et id_max= 0";
+            echo "ETAT GET ET POST -->Non defini et id_max= null";
             echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
             include 'container_dashboard_list_vide.php';
          } else {

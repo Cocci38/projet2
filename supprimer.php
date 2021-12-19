@@ -16,6 +16,7 @@ function select_Max_id_DEL()
         $prepare2 = $codb->prepare($sql2);
         $prepare2->execute();
         $max = $prepare2->fetch(PDO::FETCH_ASSOC);
+        print_r($max);
         if ($max['Id'] == NULL) {
             return 0;
         } else {
