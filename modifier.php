@@ -44,11 +44,11 @@ function select_Max_id_UP()
 <body>
     <?php
     include 'nav.php';
-    include 'tools.php';
     include 'message.php';
+    require  'tools.php';
     if (empty($_GET['Id'])) {
         echo MSG_WARNING_MUSIC_NOT_SELECTIONNED;
-        if (select_Max_id_UP() == 0) {
+        if (select_Max_id() == 0) {
             include 'container_dashboard_list_vide.php';
         } else {
             include 'container_dashboard_list.php';

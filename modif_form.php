@@ -17,7 +17,7 @@
     require 'tools.php'; ?>
     <!-- si la provenance du fichier vient de get ok-> -->
     <?php
-    if (!(empty($_GET['Id']))) {
+    if (isset($_GET['Id'])) {
         $musicmodif = select_by_Id($_GET['Id']);
         print_r($musicmodif);
         echo
@@ -25,7 +25,7 @@
         <div class='container'>
             <h4>Formulaire de modification de musique</h4>
             <!--formulaire debut MODIF-->
-            <form method='POST' enctype='multipart/form-data' action='dashboard.php'>
+            <form method='POST' enctype='multipart/form-data' action='index.php'>
                 <!-- 2 premiers champs artiste et  titre-->
                 <div class='row mb-3'>
                     <div class='col'>
@@ -47,7 +47,7 @@
                     <div class='col'>
                         <label for='genre'>Genre</label>
                         <input name='Genre' type='text' class='form-control' id='Genre' value='" . $musicmodif['Genre'] .
-            "'>
+        "'>
                     </div>
                 </div>
                 <!--fichier Cover&Sound-->
@@ -56,7 +56,7 @@
                     <div class='col'>
                         <div class='image-upload'>
                             <label for='Sound'>
-                                <img src='img\cover1.png' width='100px' />
+                                <img src='img\sound2.png' width='100px' />
                             </label>
                             <p>
                              <input name='Sound' id='Sound' type='file' value='" . $musicmodif['Sound'] . "'>
@@ -91,7 +91,7 @@
                 <!-- bouton -->
                 <div class='container'>
                     <button type='submit' class='btn text-white' style='background-color: #16ade1;'>Valider</button>
-                    <button type='cancel' class='btn text-white' style='background-color: #1b3954;'>Annuler</button>
+                    <button type='reset' class='btn text-white' style='background-color: #1b3954;'>Annuler</button>
                     <input id='Etat' name='Etat' type='hidden' value='UP'>
                     <input id='Id' name='Id' type='hidden' value='" . $musicmodif['Id'] . "'>
                 </div>

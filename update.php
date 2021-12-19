@@ -12,9 +12,10 @@ if (!(empty($_POST['Id']))) {
         /**modification sur le titre */
     if ((isset($_POST['Titre'])) && (!(empty($_POST['Titre'])))) {
         try {
+            echo $_POST['Titre'];
             $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
             $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE Musique SET Titre=:Titre WHERE Id=:$id_to_change";
+            $sql = "UPDATE Musique SET Titre=:Titre WHERE Id=:Id";
             $prepare = $codb->prepare($sql);
             $prepare->bindParam(':Titre', $_POST['Titre']);
             $prepare->bindParam(':Id', $id_to_change);
@@ -30,13 +31,13 @@ if (!(empty($_POST['Id']))) {
         try {
             $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
             $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE Musique SET Album=:Album WHERE id=:$id_to_change";
+            $sql = "UPDATE Musique SET Album=:Album WHERE Id=:Id";
             $prepare = $codb->prepare($sql);
             $prepare->bindParam(':Album', $_POST['Album']);
             $prepare->bindParam(':Id', $id_to_change);
             $prepare->execute();
         } catch (PDOException $e) {
-            echo "Message d'erreur : " . $e->getMessage() . "<br />";
+            echo "Message d'erreur : " . $e->getMessage() . ":Titre<br />";
         }
     }
     /*modifcation du Artiste*/
@@ -45,13 +46,13 @@ if (!(empty($_POST['Id']))) {
         try {
             $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
             $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE Musique SET Artiste=:Artiste WHERE id=:$id_to_change";
+            $sql = "UPDATE Musique SET Artiste=:Artiste WHERE Id=:Id";
             $prepare = $codb->prepare($sql);
             $prepare->bindParam(':Artiste', $_POST['Artiste']);
             $prepare->bindParam(':Id', $id_to_change);
             $prepare->execute();
         } catch (PDOException $e) {
-            echo "Message d'erreur : " . $e->getMessage() . "<br />";
+            echo "Message d'erreur : " . $e->getMessage() . ":Artiste<br />";
         }
     }
 
@@ -61,13 +62,13 @@ if (!(empty($_POST['Id']))) {
         try {
             $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
             $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE Musique SET Genre=:Genre WHERE id=:$id_to_change";
+            $sql = "UPDATE Musique SET Genre=:Genre WHERE Id=:Id";
             $prepare = $codb->prepare($sql);
             $prepare->bindParam(':Genre', $_POST['Genre']);
             $prepare->bindParam(':Id', $id_to_change);
             $prepare->execute();
         } catch (PDOException $e) {
-            echo "Message d'erreur : " . $e->getMessage() . "<br />";
+            echo "Message d'erreur : " . $e->getMessage() . ":Genre<br />";
         }
     }
     // modification du Cover
@@ -79,7 +80,7 @@ if (!(empty($_POST['Id']))) {
         && (is_uploaded_file($_FILES['Cover']['tmp_name']))
     ) {
         if (!(in_array($extension, $extensionsAutorisees_image))) {
-            die(MSG_PROBLEM_ADD_IMAGE);
+            echo "pb";
         } else {
             //on est rentree et le fichier est au bon format --> on ecrase le fichier existant
             //tester si les extensions sont identiques sinon renommé le fichier enregistré dans la bd avant 
@@ -89,17 +90,17 @@ if (!(empty($_POST['Id']))) {
                 # code...
                 rename($_FILES['Cover']['tmp_name'], selectElmentby('Cover', $_id_to_change));
             } else {
-                // on modifie le nom dans la base de donnee pui on renommme
+                // on modifie le nom dans la base de donnee pui on renommme 
                 try {
                     $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                     $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $sql = "UPDATE Musique SET Cover=:Genre WHERE id=:$id_to_change";
+                    $sql = "UPDATE Musique SET Cover=:Genre WHERE Id=:Id";
                     $prepare = $codb->prepare($sql);
                     $prepare->bindParam(':Cover', $_POST['Cover']);
                     $prepare->bindParam(':Id', $id_to_change);
                     $prepare->execute();
                 } catch (PDOException $e) {
-                    echo "Message d'erreur : " . $e->getMessage() . "<br />";
+                    echo "Message d'erreur : " . $e->getMessage() . ":BD Cover<br />";
                 }
                 rename($_FILES['Cover']['tmp_name'], selectElmentby('Cover', $_id_to_change));
             }
@@ -128,13 +129,13 @@ if (!(empty($_POST['Id']))) {
                 try {
                     $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                     $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $sql = "UPDATE Musique SET Sound=:Sound WHERE id=:$id_to_change";
+                    $sql = "UPDATE Musique SET Sound=:Sound WHERE Id=:Id";
                     $prepare = $codb->prepare($sql);
                     $prepare->bindParam(':Sound', $_POST['Sound']);
                     $prepare->bindParam(':Id', $id_to_change);
                     $prepare->execute();
                 } catch (PDOException $e) {
-                    echo "Message d'erreur : " . $e->getMessage() . "<br />";
+                    echo "Message d'erreur : " . $e->getMessage() . ":BD SOund<br />";
                 }
                 rename($_FILES['Sound']['tmp_name'], selectElmentby('Sound', $_id_to_change));
             }

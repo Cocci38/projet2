@@ -3,7 +3,7 @@
    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #1b3954;">
       <div class="container-fluid">
          <!-- Brand -->
-         <a class="navbar-brand " href="dashboard.php">Dashboard</a>
+         <a class="navbar-brand " href="index.php">Dashboard</a>
 
          <!-- Toggler/collapsibe Button -->
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
