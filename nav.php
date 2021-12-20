@@ -29,14 +29,15 @@
                                        } ?>" href="supprimer.php">Supprimer</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="inscription.php">S'inscrire
-                  </a>
-
+                  <a class="nav-link" <?php if ($page == 'inscription.php') {
+                                             echo 'active';
+                                       } ?> href="inscription.php">S'inscrire</a>
                </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="login.php">Se connecter
-                     </a>
-                  </li>
+               <li class="nav-item">
+                  <a class="nav-link" <?php if ($page == 'login.php') {
+                                             echo 'active';
+                                       } ?>href="login.php">Se déconnecter</a>
+               </li>             
             </ul>
          </div>
       </div>
