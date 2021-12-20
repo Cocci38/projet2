@@ -22,29 +22,6 @@
    ?>
    <main>
       <?php
-
-      /*     if ((isset($_GET['Etat'])) && (!(empty($_GET['Etat'])))) {
-         switch ($_GET(['Etat'])) {
-            case 'DEL':
-               echo 'ETAT GET -> DEL';
-               include 'delete.php';
-               unset($_GET['Etat']);
-               if (select_Max_id() == 0) {
-                  echo 'ETAT GET ->DEL MAX_ID null';
-                  include 'container_dashboard_list_vide.php';
-                  break;
-               } else {
-                  echo 'ETAT GET ->DEL MAX_ID non null';
-                  include 'container_dashboard_list.php';
-                  echo MSG_SUCCESS_DEL_MUSIC;
-                  break;
-               }
-            case 'UP':
-               echo 'ETAT GET ->UP';
-               include 'modif_form.php';
-               echo MSG_SUCCESS_UP_MUSIC;
-               break;
-            default:*/
       if (select_Max_id() == 0) {
          echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
          include 'container_dashboard_list_vide.php';

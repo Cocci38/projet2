@@ -9,7 +9,6 @@ if (!(empty($_POST['Id']))) {
     /**modification sur le titre */
     if ((isset($_POST['Titre'])) && (!(empty($_POST['Titre'])))) {
         try {
-            echo $_POST['Titre'];
             $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
             $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "UPDATE Musique SET Titre=:Titre WHERE Id=:Id";
@@ -99,7 +98,7 @@ if (!(empty($_POST['Id']))) {
                     $prepare->execute();
                 } catch (PDOException $e) {
                     echo 'cas de la BD image';
-                    die(MSG_PROBLEM_ADD_IMAGE);
+                    die(MSG_PROBLEM_UP_IMAGE);
                 }
                 rename($_FILES['Cover']['tmp_name'], $objet);
             }

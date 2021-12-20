@@ -1,17 +1,6 @@
 <?php
 //test si un repertoire existe sinon il le crée
-function IsDir_or_CreateIt($path)
-{
-    if (is_dir($path)) {
-        return true;
-    } else {
-        if (mkdir($path)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
+
 //select id Max
 function select_Max_id()
 {

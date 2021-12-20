@@ -12,27 +12,26 @@
 </head>
 
 <body>
-    <?php
-    include 'nav.php';
-    require 'message.php';
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include 'add.php';
-        if (select_Max_id() == 0) {
-            echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
-            include 'container_dashboard_list_vide.php';
-        } else {
-            echo MSG_SUCCESS_ADD_MUSIC;
-            include 'container_dashboard_list.php';
-        }
-    } else {
-        include 'inser_form.php';
-    }
-
-    ?>
+    <?php 
+        include 'nav.php';
+        require 'message.php'; 
+        ?>
     <main>
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            include 'add.php';
+            if (select_Max_id() == 0) {
+                echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+                include 'container_dashboard_list_vide.php';
+            } else {
+                echo MSG_SUCCESS_ADD_MUSIC;
+                include 'container_dashboard_list.php';
+            }
+        } else {
+            include 'inser_form.php';
+        }
+        ?>
     </main>
-    <footer>
-    </footer>
 </body>
 <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
