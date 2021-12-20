@@ -28,7 +28,7 @@
                             <input type='text' class='form-control' id='name' placeholder='Votre nom' required pattern="^[A-Za-z '-]+$" maxlength="20" name='nom'>
                         </div>
                         <div class='mb-4'>
-                         <label for='mail' class='form-label'>Email</label>
+                        <label for='mail' class='form-label'>Email</label>
                             <input type='email' class='form-control' id='mail' placeholder='Votre adresse Email' required='required' name='mail'>
                         </div>
                         <div class='mb-4'>
