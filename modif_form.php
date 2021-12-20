@@ -25,7 +25,7 @@
         <div class='container'>
             <h4>Formulaire de modification de musique</h4>
             <!--formulaire debut MODIF-->
-            <form method='POST' enctype='multipart/form-data' action='index.php'>
+            <form method='POST' enctype='multipart/form-data' action='modifier.php'>
                 <!-- 2 premiers champs artiste et  titre-->
                 <div class='row mb-3'>
                     <div class='col'>
