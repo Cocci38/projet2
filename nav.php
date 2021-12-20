@@ -28,6 +28,15 @@
                                           echo 'active';
                                        } ?>" href="supprimer.php">Supprimer</a>
                </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="inscription.php">S'inscrire
+                  </a>
+
+               </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="login.php">Se connecter
+                     </a>
+                  </li>
             </ul>
          </div>
       </div>
