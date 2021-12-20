@@ -2,14 +2,16 @@
 include 'config.php';
 $liste = select_All();
 
-echo "<div class='row'>
-            <div class='col order-last'>
-            </div>
-            <div class='col text-center'>
-               <a href='inserer.php'><button type='button' class='btn btn-light btn-lg border'><img src='img\sound2.png' class='img-fluid' alt='Bouton Ajouter'> Ajouter</button></a>
-             </div>
-      <div class='col order-first'>
-      </div>
+echo
+"
+      <div class='row'>
+         <div class='col order-last'>
+         </div>
+         <div class='col text-center'>
+            <a href='inserer.php'><button type='button' class='btn btn-light btn-lg border'><img src='img\sound2.png' class='img-fluid' alt='Bouton Ajouter'> Ajouter</button></a>
+         </div>
+         <div class='col order-first'>
+         </div>
       </div>";
 //debut  du container
 echo "<div class='container'>";
@@ -56,29 +58,30 @@ foreach ($liste as $ligne) {
                               </div>
                            <div class='col'>
                               <p>";
-         echo ($ligne['Cover'] == "") ? $Cover_vide : "<img src='" . $basenameWeb . $ligne['Cover'] . "'>";
+   echo ($ligne['Cover'] == "") ? $Cover_vide : "<img src='" . $basenameWeb . $ligne['Cover'] . "'>";
 
-         echo "             </p>
+   echo "             </p>
                            </div>
                         </div>
-               <div class='row'>
-                  <div class='col'>
-                     <p>
-                        <audio title='" . $ligne['Titre'] . "' preload='auto' controls loop>
-                           <source src='" . $ligne['Sound'] . "' type='audio/mp3'>
-                        </audio>
-                     </p>
-                  </div>
-                  <div class='col'>
-                     <p>
-                        <a href='supprimer.php?Etat=DEL&Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
-                        <a href='modif_form.php?Etat=UP&Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-warning me-md-2 float-end btn-lg'><i class='bi bi-pencil'></i></button></a>
-                     </p>
+                        <div class='row'>
+                           <div class='col'>
+                              <p>
+                                 <audio title='" . $ligne['Titre'] . "' preload='auto' controls loop>
+                                    <source src='" . $ligne['Sound'] . "' type='audio/mp3'>
+                                 </audio>
+                              </p>
+                           </div>
+                           <div class='col'>
+                              <p>
+                                 <a href='supprimer.php?Etat=DEL&Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-secondary float-end btn-lg'><i class='bi bi-trash'></i></button></a>
+                                 <a href='modif_form.php?Etat=UP&Id=" . $ligne['Id'] . "'><button type='button' class='btn btn-outline-warning me-md-2 float-end btn-lg'><i class='bi bi-pencil'></i></button></a>
+                              </p>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
-            </div>
-          </div>
-      </div>
+         </div>
 ";
 }
 

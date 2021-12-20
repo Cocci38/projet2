@@ -59,7 +59,7 @@
                                 <img src='img\sound2.png' width='100px' />
                             </label>
                             <p>
-                             <input name='Sound' id='Sound' type='file' value='" . $musicmodif['Sound'] . "'>
+                             <input name='Sound' id='Sound' type='file' value=''>
                                 <audio title='" . $musicmodif['Titre'] . "' preload='auto' controls loop>";
         if (strstr($musicmodif['Sound'], 'mp3')) {
             echo "<source src='" . $musicmodif['Sound'] . "' type='audio/mp3'>";
@@ -84,7 +84,7 @@
         }
 
         echo "              </label>
-                            <input name='Cover' id='Sound' type='file' />
+                            <input name='Cover' id='Cover' type='file' />
                         </div>
                     </div>
                 </div>

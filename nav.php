@@ -28,9 +28,14 @@
                                           echo 'active';
                                        } ?>" href="supprimer.php">Supprimer</a>
                </li>
+               <li class="nav-item">
+                  <a class="nav-link <?php if ($page == 'logout.php') {
+                                          echo 'active';
+                                       } ?>" href="logout.php"><button type='button' class='btn clipboard'><i class='bi bi-box-arrow-right'></i></button></a>
+               </li>
             </ul>
          </div>
-      </div>
+
    </nav>
    <!--<div class=img-fluid><img src="img\fond.png"  width="100%" height="auto" class="img-fluid">-->
 </header>
