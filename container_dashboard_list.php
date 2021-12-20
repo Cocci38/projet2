@@ -81,7 +81,13 @@ foreach ($liste as $ligne) {
                      </div>
                   </div>
                </div>
+<<<<<<< HEAD
          </div>
+=======
+            </div>
+         </div>
+      </div>
+>>>>>>> e8a2602dd2b5a7af1aca0a37d2715c0331e0d687
 ";
 }
 

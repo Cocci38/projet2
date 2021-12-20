@@ -29,10 +29,21 @@
                                        } ?>" href="supprimer.php">Supprimer</a>
                </li>
                <li class="nav-item">
+<<<<<<< HEAD
                   <a class="nav-link <?php if ($page == 'logout.php') {
                                           echo 'active';
                                        } ?>" href="logout.php"><button type='button' class='btn clipboard'><i class='bi bi-box-arrow-right'></i></button></a>
                </li>
+=======
+                  <a class="nav-link" href="inscription.php">S'inscrire
+                  </a>
+
+               </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="login.php">Se connecter
+                     </a>
+                  </li>
+>>>>>>> e8a2602dd2b5a7af1aca0a37d2715c0331e0d687
             </ul>
          </div>
 
