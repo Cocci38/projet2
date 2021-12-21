@@ -27,11 +27,11 @@
                         <form>
                             <div class='mb-4'>
                                 <label for='username' class='form-label'>Username/Email</label>
-                                <input type='text' class='form-control' id='username'>
+                                <input type='text' class='form-control' id='username' required='required'>
                             </div>
                             <div class='mb-4'>
                                 <label for='password' class='form-label'>Password</label>
-                                <input type='password' class='form-control' id='password'>
+                                <input type='password' class='form-control' id='password' required='required'>
                             </div>
 
                             <div class='mb-4'>

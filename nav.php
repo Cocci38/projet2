@@ -30,6 +30,7 @@
                </li>
                <li class="nav-item">
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <a class="nav-link <?php if ($page == 'logout.php') {
                                           echo 'active';
                                        } ?>" href="logout.php"><button type='button' class='btn clipboard'><i class='bi bi-box-arrow-right'></i></button></a>
@@ -44,6 +45,17 @@
                      </a>
                   </li>
 >>>>>>> e8a2602dd2b5a7af1aca0a37d2715c0331e0d687
+=======
+                  <a class="nav-link" <?php if ($page == 'inscription.php') {
+                                             echo 'active';
+                                       } ?> href="inscription.php">S'inscrire</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" <?php if ($page == 'login.php') {
+                                             echo 'active';
+                                       } ?>href="login.php">Se déconnecter</a>
+               </li>             
+>>>>>>> db0b5be68daaf41f24943bbea88361a2f46c676f
             </ul>
          </div>
 
