@@ -1,3 +1,13 @@
+<? 
+/*
+// Initialiser la session
+session_start();
+// Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
+if (!isset($_SESSION["username"])) {
+   header("Location: login.php");
+   exit();
+}*/
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,7 +32,10 @@
    ?>
    <main>
       <?php
+<<<<<<< HEAD
       //afficher la liste de morceaux contenu dans la base
+=======
+>>>>>>> 8ba41fccc0b92f55765a371df01a81c7324fd435
       if (select_Max_id() == 0) {
          echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
          include 'container_dashboard_list_vide.php';

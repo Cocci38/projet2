@@ -1,6 +1,6 @@
 <?php
 $basenameWeb = "";
-$servername = "localhost";
+$servername = $_SERVER["SERVER_NAME"];
 $username = "root";
 $password = "";
 $table = "musique";

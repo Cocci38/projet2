@@ -1,12 +1,24 @@
 <?php
-
+//test si un repertoire existe sinon il le crée
+function IsDir_or_CreateIt($path)
+{
+        if (is_dir($path)) {
+                return true;
+        } else {
+                if (mkdir($path)) {
+                        return true;
+                } else {
+                        return false;
+                }
+        }
+}
 include 'config.php';
 require 'tools.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $baserelative;
 
-        
+
         if (empty($_POST['Titre'])) {
                 $form['Titre'] =  "Titre à definir";
         } else {
@@ -92,8 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $prepare->bindParam(':Cover', $form['Cover']);
                 $prepare->bindParam(':Sound', $form['Sound']);
                 $prepare->execute();
-         
         } catch (PDOException $e) {
-                        echo "Message d'erreur : " . $e->getMessage() . "<br />";
+                echo "Message d'erreur : " . $e->getMessage() . "<br />";
         }
 }

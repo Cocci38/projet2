@@ -1,3 +1,13 @@
+<?php
+include 'connexion.php';
+try {
+   $dbco = new PDO("mysql:host=$serveur;dbname=$namedb", $user, $pass);
+   $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch 
+   (PDOException $e) {
+      echo 'Erreur : ' . $e->getMessage();
+}
+?>
 <header>
    <?php $page = basename($_SERVER["SCRIPT_FILENAME"]); ?>
    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #1b3954;">
@@ -29,6 +39,23 @@
                                        } ?>" href="supprimer.php">Supprimer</a>
                </li>
                <li class="nav-item">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                  <a class="nav-link <?php if ($page == 'logout.php') {
+                                          echo 'active';
+                                       } ?>" href="logout.php"><button type='button' class='btn clipboard'><i class='bi bi-box-arrow-right'></i></button></a>
+               </li>
+=======
+                  <a class="nav-link" href="inscription.php">S'inscrire
+                  </a>
+
+               </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="login.php">Se connecter
+                     </a>
+                  </li>
+>>>>>>> e8a2602dd2b5a7af1aca0a37d2715c0331e0d687
+=======
                   <a class="nav-link" <?php if ($page == 'inscription.php') {
                                              echo 'active';
                                        } ?> href="inscription.php">S'inscrire</a>
@@ -38,9 +65,10 @@
                                              echo 'active';
                                        } ?>href="login.php">Se déconnecter</a>
                </li>             
+>>>>>>> db0b5be68daaf41f24943bbea88361a2f46c676f
             </ul>
          </div>
-      </div>
+
    </nav>
    <!--<div class=img-fluid><img src="img\fond.png"  width="100%" height="auto" class="img-fluid">-->
 </header>

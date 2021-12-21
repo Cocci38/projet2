@@ -9,7 +9,6 @@ if (!(empty($_POST['Id']))) {
     /**modification sur le titre */
     if ((isset($_POST['Titre'])) && (!(empty($_POST['Titre'])))) {
         try {
-            echo $_POST['Titre'];
             $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
             $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "UPDATE Musique SET Titre=:Titre WHERE Id=:Id";
@@ -90,6 +89,7 @@ if (!(empty($_POST['Id']))) {
                 // on modifie le nom dans la base de donnee pui on renommme le fichier
                 $objet = "image/image_" . $idTochange . "." . $extension;
                 try {
+                    echo "-5-";
                     $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                     $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $sql = "UPDATE Musique SET Cover=:Cover WHERE Id=:Id";
@@ -99,14 +99,12 @@ if (!(empty($_POST['Id']))) {
                     $prepare->execute();
                 } catch (PDOException $e) {
                     echo 'cas de la BD image';
-                    die(MSG_PROBLEM_ADD_IMAGE);
+                    die(MSG_PROBLEM_UP_IMAGE);
                 }
                 rename($_FILES['Cover']['tmp_name'], $objet);
             }
         }
-    } else {
-        die(MSG_PROBLEM_UP_IMAGE);
-    }
+    } 
 
     //modfication sur le son
     $extensionsAutorisees_sound = array("ogg", "mp3");
@@ -143,17 +141,21 @@ if (!(empty($_POST['Id']))) {
                     $prepare->execute();
                 } catch (PDOException $e) {
                     echo 'cas IMAGE DB';
-                    die(MSG_PROBLEM_UP_IMAGE);
+                    die(MSG_PROBLEM_UP_SOUND);
                 }
                 echo "{" . selectElmentby('Sound', $_idTochange) . "}";
                 rename($_FILES['Sound']['tmp_name'], $objet);
             }
         }
+<<<<<<< HEAD
     } /*else {
 
         echo 'PAS de changement->Sound';
         die(MSG_PROBLEM_UP_SOUND);
     }*/
+=======
+    }
+>>>>>>> 8ba41fccc0b92f55765a371df01a81c7324fd435
      
     /*//    modification sur le sound
     if ((isset($_FILES['Sound']['name']))
