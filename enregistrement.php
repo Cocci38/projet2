@@ -24,7 +24,7 @@
                         <h2 class='p-3'>Login</h2>
                     </div>
                     <div class='card-body'>
-                        <form>
+                        <form action='connexion.php' method='post'>
                             <div class='mb-4'>
                                 <label for='username' class='form-label'>Username/Email</label>
                                 <input type='text' class='form-control' id='username' required='required'>
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class='d-grid'>
-                                <button type='submit' class='btn main-bg text-light'>Login</button>
+                                <button type='submit' class='btn main-bg text-light'>Connexion</button>
                             </div>
                         </form>
                     </div>
