@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<? php;
-include 'tools.php';
-=======
 <?php
 include 'config.php';
 //include 'tools.php';
@@ -17,23 +13,27 @@ function IsDir_or_CreateIt($path)
         }
     }
 }
+
 $file = $_SERVER['SCRIPT_NAME'];
-$file2 = basename($_SERVER['SCRIPT_FILENAME']);
->>>>>>> 8ba41fccc0b92f55765a371df01a81c7324fd435
+//$file2 = basename($_SERVER['SCRIPT_FILENAME']);
+
 $path = 'sound';
-echo $file;
-echo "//" . $file2;
-$valeur = substr($file, $file2);
-echo " Script_file_name-->" . basename($_SERVER['SCRIPT_FILENAME']);
-echo " Document_name-->" . $_SERVER['DOCUMENT_ROOT'];
-echo " Server_name-->" . $_SERVER['SERVER_NAME'];
-echo "Substring->" . $valeur;
+echo "[SCRIPT_NAME] => " . $file . "<br>";
+$baserelive = strstr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME'], true));
+
+echo "base relative: " . $baserelative;
+
+//$valeur = substr($file, $file2);
+//echo "SCRIPT_NAME" . $file . "<Br>";
+echo " Script_file_name-->" . basename($_SERVER['SCRIPT_FILENAME']) . "<Br>";
+echo " Document_name-->" . $_SERVER['DOCUMENT_ROOT'] . "<Br>";
+echo " Server_name-->" . $_SERVER['SERVER_NAME'] . "<Br>";
+//echo "Substring->" . $valeur;
 
 
 echo "<br>";
 
 
 echo IsDir_or_CreateIt($path);
-echo basename($_SERVER["FILENAME_SCRIPT"]);
 echo pathinfo("/testweb/test.txt", PATHINFO_EXTENSION);
-phpinfo();
+print_r($_SERVER);
