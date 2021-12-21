@@ -15,7 +15,7 @@ try {
     echo "Message d'erreur : [" . $e->getMessage() . "]<br>:";
 }
 
-/*creation d'une table de musiques
+/*Creation d'une table de musiques*/
 try {
     $connectdb = new PDO('mysql:host=' . $servername . ';dbname=' . $namedb, $username, $password);
     $connectdb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

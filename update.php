@@ -127,6 +127,7 @@ if (!(empty($_POST['Id']))) {
             if (strcmp(pathinfo((selectElmentby('Sound', $idTochange)), PATHINFO_EXTENSION), pathinfo($_FILES['Sound']['name'], PATHINFO_EXTENSION))) {
                 //l'extension est la meme
                 // on recris sur le fichier
+                //*****************************************verifier que le rename ecrase bien le fichier */
                 rename($_FILES['Sound']['tmp_name'], selectElmentby('Sound', $idTochange));
         
             } else {
@@ -148,11 +149,11 @@ if (!(empty($_POST['Id']))) {
                 rename($_FILES['Sound']['tmp_name'], $objet);
             }
         }
-    } else {
+    } /*else {
 
         echo 'PAS de changement->Sound';
         die(MSG_PROBLEM_UP_SOUND);
-    }
+    }*/
      
     /*//    modification sur le sound
     if ((isset($_FILES['Sound']['name']))
