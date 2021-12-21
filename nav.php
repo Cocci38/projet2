@@ -1,10 +1,11 @@
 <?php
+include 'connexion.php';
 try {
-    $dbco = new PDO("mysql:host=$serveur;dbname=$namedb", $user, $pass);
-        $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   $dbco = new PDO("mysql:host=$serveur;dbname=$namedb", $user, $pass);
+   $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch 
-    (PDOException $e) {
-        echo 'Erreur : ' . $e->getMessage();
+   (PDOException $e) {
+      echo 'Erreur : ' . $e->getMessage();
 }
 ?>
 <header>
