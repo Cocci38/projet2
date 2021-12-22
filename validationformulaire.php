@@ -39,7 +39,7 @@ if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['password']) 
                                 ':mail' => $mail,
                                 ':password' => $password
                             ));
-                            header('Location:connexion.php?ref_err=Success');
+                            header('Location:inscription.php?ref_err=Success');
                         } catch (PDOException $e) {
                             echo 'Erreur : ' . $e->getMessage();
                         }

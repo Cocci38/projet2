@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-$liste = select_All();
+$liste = select_All(); //->erreur
 
 echo
 "
@@ -17,7 +17,6 @@ echo
 echo "<div class='container'>";
 echo "   <div class='accordion' id='accordionExample'>";
 foreach ($liste as $ligne) {
-
    $compteur = $ligne['Id'];
    $Cover_vide = "<img src='img/cover1.png' width='100'>";
    // a faire test sur le nombre de ligne du tableau pour affecte le compteur

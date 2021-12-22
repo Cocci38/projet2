@@ -19,10 +19,10 @@ function select_Max_id()
 
     try {
 
+        $User = $_SESSION['user'];
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $sql2 = "SELECT max(id) as Id FROM Musique";
+        $sql2 = "SELECT max(id) as Id FROM Musique WHERE User='$User'";
         $prepare2 = $codb->prepare($sql2);
         $prepare2->execute();
         $max = $prepare2->fetch(PDO::FETCH_ASSOC);
@@ -42,9 +42,10 @@ function selectElmentby($element, $id)
 {
     include 'config.php';
     try {
+        $User = $_SESSION['user'];
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT $element FROM $table Where Id=$id";
+        $sql = "SELECT $element FROM $table Where Id=$id, User=$User";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);
@@ -62,7 +63,7 @@ function select_All()
         $User = $_SESSION["user"];
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM Musique WHERE User=$User ORDER BY Id ASC";
+        $sql = "SELECT * FROM Musique WHERE User='$User'";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);

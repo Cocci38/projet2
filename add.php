@@ -1,24 +1,10 @@
 <?php
 
-//test si un repertoire existe sinon il le crée
-function IsDir_or_CreateIt($path)
-{
-        if (is_dir($path)) {
-                return true;
-        } else {
-                if (mkdir($path)) {
-                        return true;
-                } else {
-                        return false;
-                }
-        }
-}
 include 'config.php';
-require 'tools.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $baserelative;
+        $Webdir = strstr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME'], false));
+        $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $Webdir;
 
 
         if (empty($_POST['Titre'])) {
@@ -52,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $form['Cover'] = "";
         } elseif (is_uploaded_file($_FILES['Cover']['tmp_name'])) {
                 // test si le repertoire de destination exist sinon il le crée
-                IsDir_or_CreateIt('image');
+                IsDir_or_CreateIt($Webdir . 'image');
                 // recupération de l'extension du fichier
                 $next = select_Max_id() + 1;
                 // autrement dit tout ce qu'il y a après le dernier point (inclus)
@@ -64,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (!(in_array($extension, $extensionsAutorisees_image))) {
                         die(MSG_PROBLEM_ADD_IMAGE);
                 } else {
-                        $form['Cover'] = 'image/' . $form['User'] . 'image_' . $next . $extension;
+                        $form['Cover'] = 'image/' . $form['User'] . '_image_' . $next . $extension;
                         rename($_FILES['Cover']['tmp_name'], $repository . $form['Cover']);
                 }
         } else {
@@ -76,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $form['Sound'] = '';
         } elseif (is_uploaded_file($_FILES['Sound']['tmp_name'])) {
                 //test si le repertoire existe
-                IsDir_or_CreateIt('sound');
+                IsDir_or_CreateIt($Webdir . 'sound');
                 // recupération de l'extension du fichier
                 $next = select_Max_id() + 1;
                 // autrement dit tout ce qu'il y a après le dernier point (inclus)
@@ -88,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (!(in_array($extension, $extensionsAutorisees_sound))) {
                         die(MSG_PROBLEM_ADD_SOUND);
                 } else {
-                        $form['Sound'] = 'sound/' . $form['User'] . 'musique_' . $next . $extension;
+                        $form['Sound'] = 'sound/' . $form['User'] . '_musique_' . $next . $extension;
                         rename($_FILES['Sound']['tmp_name'], $repository . $form['Sound']);
                 }
         } else {

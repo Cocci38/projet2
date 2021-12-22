@@ -4,8 +4,10 @@ if (!(empty($_POST['Id']))) {
     include "config.php";
 
     $idTochange = $_POST['Id'];
-    $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $baserelative;
-
+    $Webdir = strstr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME'], true));
+    echo  "{" . $Webdir . "}";
+    $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $Webdir;
+    
     /**modification sur le titre */
     if ((isset($_POST['Titre'])) && (!(empty($_POST['Titre'])))) {
         try {
