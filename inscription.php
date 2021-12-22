@@ -58,6 +58,9 @@
                         </form>
                     </div>
                 </div>
+                <div class='d-grid text-center'>
+                                <a href='enregistrement.php'><button type='submit' class='btn main-bg text-light text-decoration-underline'>Se connecter ?</button></a>
+                            </div>
             </div>
         </div>
     </div>
