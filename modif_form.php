@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: connexion.php');
+}
+?>
 <!DOCTYPE html>
 <html lang='fr'>
 
@@ -49,7 +55,7 @@
                     <div class='col'>
                         <label for='genre'>Genre</label>
                         <input name='Genre' type='text' class='form-control' id='Genre' value='" . $musicmodif['Genre'] .
-        "'>
+            "'>
                     </div>
                 </div>
                 <!--fichier Cover&Sound-->
@@ -64,10 +70,10 @@
                              <input name='Sound' id='Sound' type='file' value=''>
                                 <audio title='" . $musicmodif['Titre'] . "' preload='auto' controls loop>";
         if (strstr($musicmodif['Sound'], 'mp3')) {
-            echo "<source src='" . $musicmodif['Sound'] . "' type='audio/mp3'>";
+            echo "<source src='" . "sound" . $musicmodif['Sound'] . "' type='audio/mp3'>";
         }
         if (strstr($musicmodif['Sound'], 'ogg')) {
-            echo "<source src='" . $musicmodif['Sound'] . "' type='audio/ogg'>";
+            echo "<source src='" . "sound" . $musicmodif['Sound'] . "' type='audio/ogg'>";
         }
         echo
         " 
@@ -82,7 +88,7 @@
         if (empty($musicmodif['Cover'])) {
             echo "<img src='img\sound2.png' width='100px' />";
         } else {
-            echo "<img src='" . $musicmodif['Cover'] . "' width='100px'>";
+            echo "<img src='" . "image" . $musicmodif['Cover'] . "' width='100px'>";
         }
 
         echo "              </label>
