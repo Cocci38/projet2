@@ -32,7 +32,7 @@ if (!empty($_POST['mail']) && !empty($_POST['password'])) {
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             if (hash_equals(hash('sha256', $password), $data['password'])) {
                     $_SESSION['user'] = $data['mail'];
-
+                $_SESSION['name'] = $data['name'];
                     header('Location: index.php');
                     
             } else {
