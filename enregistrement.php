@@ -74,8 +74,8 @@
                         </div>
                     </div>
                 </div>
-                <div class='d-grid'>
-                                <button type='submit' class='btn main-bg text-light'>S'inscrire</button>
+                <div class='d-grid text-center'>
+                                <a href='inscription.php'><button type='submit' class='btn main-bg text-light text-decoration-underline'>S'inscrire ?</button></a>
                             </div>
             </div>
         </div>";
