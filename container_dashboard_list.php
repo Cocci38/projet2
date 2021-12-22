@@ -59,7 +59,7 @@ foreach ($liste as $ligne) {
                               </div>
                            <div class='col'>
                               <p>";
-   echo ($ligne['Cover'] == "") ? $Cover_vide : "<img src='" . $ligne['Cover'] . "'>";
+   echo ($ligne['Cover'] == "") ? $Cover_vide : "<img src='" . "image" . $ligne['Cover'] . "'>";
 
    echo "             </p>
                            </div>
@@ -68,7 +68,7 @@ foreach ($liste as $ligne) {
                            <div class='col'>
                               <p>
                                  <audio title='" . $ligne['Titre'] . "' preload='auto' controls loop>
-                                    <source src='" . $ligne['Sound'] . "' type='audio/mp3'>
+                                    <source src='" . "sound" . $ligne['Sound'] . "' type='audio/mp3'>
                                  </audio>
                               </p>
                            </div>
