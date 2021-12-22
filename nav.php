@@ -38,16 +38,10 @@ try {
                                             } ?>" href="supprimer.php">Supprimer</a>
                     </li>
                     <li class="nav-item">
-
-                        <a class="nav-link <?php if ($page == 'logout.php') {
-                                                echo 'active';
-                                            } ?>" href="logout.php"><button type='button' class='btn clipboard'><i
-                                    class='bi bi-box-arrow-right'></i></button></a>
-                    <li class="nav-item">
                         <a class="nav-link"
                             <?php if ($page == 'logout.php') {
                                                 echo 'active';
-                                            } ?>href="logout.php"><?= "Use =>( " . $_SESSION['name'] . ")";  ?>logout</a>
+                                            } ?>href="logout.php"><?= "(" . $_SESSION['name'] . ")";  ?> Déconnexion</a>
                     </li>
                 </ul>
             </div>
