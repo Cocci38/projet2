@@ -19,32 +19,35 @@
 
     <!--Login formulaire-->
     <?php
+    include 'message.php';
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         include 'connexion.php';
     } else {
         echo "<div class='container'>
             <div class='row justify-content-center mt-5'>";
-        if (isset($_GET['reg_err'])) {
+        if (isset($_GET['login_err'])) {
 
-            switch ($_GET['reg_err']) {
+            switch ($_GET['login_err']) {
                 case 'mail':
-                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>email invalide</div>";
+                    echo MSG_MAIL_INVALID;
                     break;
                 case 'password':
-                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>password invalide</div>";
+                    echo MSG_PASSWORD_INVALID;
                     break;
                 case 'mail_length':
-                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>email trop long</div>";
+                    echo MSG_MAIL_LENGTH;
                     break;
                 case 'already':
-                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>login existant/div>";
+                    echo MSG_ALREADY;
                     break;
                 case 'pseudo_length':
-                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>login trop long</div>";
+                    echo MSG_NAME_LENGTH;
                     break;
+                case 'success':
+                    echo MSG_SUCCESS_CONNECTION;
                     
                 default:
-                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>Success</div>";
+                    
                     break;
             }
         }
