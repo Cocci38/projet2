@@ -1,12 +1,10 @@
-<?
-/*
-// Initialiser la session
+<?php
 session_start();
-// Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
-if (!isset($_SESSION["username"])) {
-   header("Location: login.php");
-   exit();
+print_r($_SESSION);
+/*if (!isset($_SESSION['user'])) {
+    header('Location: connexion.php');
 }*/
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,20 +27,20 @@ if (!isset($_SESSION["username"])) {
 
 <body>
     <?php
-   include 'nav.php';
-   include 'tools.php';
-   include 'message.php';
-   ?>
+    include 'nav.php';
+    include 'tools.php';
+    include 'message.php';
+    ?>
     <main>
         <?php
-      //afficher la liste de morceaux contenu dans la base
-      if (select_Max_id() == 0) {
-         echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
-         include 'container_dashboard_list_vide.php';
-      } else {
-         include 'container_dashboard_list.php';
-      }
-      ?>
+        //afficher la liste de morceaux contenu dans la base
+        if (select_Max_id() == 0) {
+            echo MSG_WARNING_LISTE_MUSIQUE_EMPTY;
+            include 'container_dashboard_list_vide.php';
+        } else {
+            include 'container_dashboard_list.php';
+        }
+        ?>
     </main>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

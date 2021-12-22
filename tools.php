@@ -1,6 +1,17 @@
 <?php
 //test si un repertoire existe sinon il le crée
-
+function IsDir_or_CreateIt($path)
+{
+    if (is_dir($path)) {
+        return true;
+    } else {
+        if (mkdir($path)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 //select id Max
 function select_Max_id()
 {
@@ -48,9 +59,10 @@ function select_All()
 {
     include 'config.php';
     try {
+        $User = $_SESSION["user"];
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM Musique ORDER BY Id ASC";
+        $sql = "SELECT * FROM Musique WHERE User=$User ORDER BY Id ASC";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetchAll(PDO::FETCH_ASSOC);
@@ -69,7 +81,7 @@ function select_by_Id($id)
     try {
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM Musique WHERE id=$id";
+        $sql = "SELECT * FROM $table WHERE id=$id";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);

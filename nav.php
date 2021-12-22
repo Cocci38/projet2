@@ -1,15 +1,10 @@
 <?php
-/*session_start();
-if (!isset($_SESSION['usr'])) {
-   header('Location: connexion.php');
-}
-
 try {
-   $dbco = new PDO("mysql:host=$serveur;dbname=$namedb", $user, $pass);
-   $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbco = new PDO("mysql:host=$serveur;dbname=$namedb", $user, $pass);
+    $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-   echo 'Erreur : ' . $e->getMessage();
-}*/
+    echo 'Erreur : ' . $e->getMessage();
+}
 ?>
 <header>
     <?php $page = basename($_SERVER["SCRIPT_FILENAME"]); ?>
@@ -28,29 +23,30 @@ try {
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link <?php if ($page == 'inserer.php') {
-                                          echo 'active';
-                                       } ?>" href="inserer.php">Insérer</a>
+                                                echo 'active';
+                                            } ?>" href="inserer.php">Insérer</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($page == 'modifier.php') {
-                                          echo 'active';
-                                       } ?>" href="modifier.php">Modifier</a>
+                                                echo 'active';
+                                            } ?>" href="modifier.php">Modifier</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($page == 'supprimer.php') {
-                                          echo 'active';
-                                       } ?>" href="supprimer.php">Supprimer</a>
+                                                echo 'active';
+                                            } ?>" href="supprimer.php">Supprimer</a>
                     </li>
                     <li class="nav-item">
 
                         <a class="nav-link <?php if ($page == 'logout.php') {
-                                          echo 'active';
-                                       } ?>" href="logout.php"><button type='button' class='btn clipboard'><i
+                                                echo 'active';
+                                            } ?>" href="logout.php"><button type='button' class='btn clipboard'><i
                                     class='bi bi-box-arrow-right'></i></button></a>
                     <li class="nav-item">
-                        <a class="nav-link" <?php if ($page == 'logout.php') {
-                                          echo 'active';
-                                       } ?>href="logout.php"><?php /*$_SESSION['usr']; */ ?></a>
+                        <a class="nav-link"
+                            <?php if ($page == 'logout.php') {
+                                                echo 'active';
+                                            } ?>href="logout.php"><?= "UTLISATEUR(. " . $_SESSION['user'] . ")";  ?>logout</a>
                     </li>
                 </ul>
             </div>

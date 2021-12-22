@@ -25,8 +25,8 @@ if (!empty($_POST['mail']) && !empty($_POST['password'])) {
 
     $check = $bdd->prepare("SELECT name, mail, password FROM $table WHERE mail = ?");
     $check->execute(array($mail));
-        $data = $check->fetch();
-        $row = $check->rowCount();
+    $data = $check->fetch();
+    $row = $check->rowCount();
 
     if ($row == 1) {
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
@@ -37,7 +37,7 @@ if (!empty($_POST['mail']) && !empty($_POST['password'])) {
                     $_SESSION['user'] = $data['mail'];
 
                     header('Location: index.php');
-                    die();
+                    
             } else {
                 header('Location: enregistrement.php?login_err=password');
             }
