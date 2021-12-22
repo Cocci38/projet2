@@ -31,7 +31,7 @@
                             <div class='mb-4'>
                                 <label for='name' class='form-label'>Nom</label>
                                 <input type='text' class='form-control' id='name' placeholder='Votre nom' required
-                                    pattern="^[A-Za-z '-]+$" maxlength="20" name='nom'>
+                                    pattern="^[A-Za-z '-]+$" maxlength="20" name='name'>
                             </div>
                             <div class='mb-4'>
                                 <label for='mail' class='form-label'>Email</label>

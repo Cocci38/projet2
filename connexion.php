@@ -9,7 +9,6 @@ $namedb = "mamusique";
 $user = "root";
 $pass = "";
 
-
 try {
     $bdd = new PDO("mysql:host=$serveur;dbname=$namedb", $user, $pass);
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -31,10 +30,7 @@ if (!empty($_POST['mail']) && !empty($_POST['password'])) {
 
     if ($row == 1) {
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            if (password_verify($password, $data['password'])) {
-                $password = hash('sha256', $password);
-                if ($data['password'] === $password) {
-                }
+            if (hash_equals(hash('sha256', $password), $data['password'])) {
                     $_SESSION['user'] = $data['mail'];
 
                     header('Location: index.php');

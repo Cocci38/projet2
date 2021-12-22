@@ -13,7 +13,6 @@ try {
     echo 'Erreur : ' . $e->getMessage();
 }
 
-
 if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['password_retype'])) {
     $nom = htmlspecialchars($_POST["name"]);
     $mail = htmlspecialchars($_POST["mail"]);
@@ -32,21 +31,25 @@ if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['password']) 
             if (strlen($mail) <= 100) {
                 if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     if ($password == $password_retype) {
-                        $password = hash('sha256', $password);
-                        $inser = $bdd->prepare("INSERT INTO $table(name,mail,password) VALUES(:nom, :mail, :password)");
-                        $inser->execute(array(
-                            'nom' => $nom,
-                            'mail' => $mail,
-                            'password' => $password
-                        ));
-                        header('Location:connexion?ref_err=Success');
+                        try {
+                            $password = hash('sha256', $password);
+                            $inser = $bdd->prepare("INSERT INTO $table(name,mail,password) VALUES(:name, :mail, :password)");
+                            $inser->execute(array(
+                                ':name' => $nom,
+                                ':mail' => $mail,
+                                ':password' => $password
+                            ));
+                            header('Location:connexion.php?ref_err=Success');
+                        } catch (PDOException $e) {
+                            echo 'Erreur : ' . $e->getMessage();
+                        }
                     } else header('Loaction: inscription.php?reg_err=password');
                 } else header("Location: inscription.php?reg_err=mail");
             } else header("Location: inscription.php?reg_err=mail_length");
         } else header("Location : inscription.php?reg_err=pseudo_length");
     } else header('Location: inscription.php?reg_err=already');
 }
-
+/*
 if (
     !empty($nom)
     && strlen($nom) <= 20
@@ -74,4 +77,4 @@ if (
     }
 } else {
     header("Location:enregistrement.php");
-}
+}*/

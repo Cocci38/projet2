@@ -57,11 +57,11 @@
                             <form action='connexion.php' method='post'>
                                 <div class='mb-4'>
                                     <label for='mail' class='form-label'>Username/Email</label>
-                                    <input type='email' class='form-control' id='mail' required='required'>
+                                    <input type='email' class='form-control' id='mail' name='mail' required='required'>
                                 </div>
                                 <div class='mb-4'>
                                     <label for='password' class='form-label'>Password</label>
-                                    <input type='password' class='form-control' id='password' required='required'>
+                                    <input type='password' class='form-control' id='password' name='password' required='required'>
                                 </div>
                                 <div class='mb-4'>
                                     <input type='checkbox' class='form-check-input' id='remember'>
