@@ -24,19 +24,27 @@
     } else {
         echo "<div class='container'>
             <div class='row justify-content-center mt-5'>";
-        if (isset($_GET['login_err'])) {
+        if (isset($_GET['reg_err'])) {
 
-            switch ($_GET['login_err']) {
+            switch ($_GET['reg_err']) {
                 case 'mail':
                     echo "<div class='col-lg-4 col-md-8 col-sm-8'>email invalide</div>";
                     break;
                 case 'password':
                     echo "<div class='col-lg-4 col-md-8 col-sm-8'>password invalide</div>";
                     break;
-                case 'already':
-                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>login invalide</div>";
+                case 'mail_length':
+                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>email trop long</div>";
                     break;
+                case 'already':
+                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>login existant/div>";
+                    break;
+                case 'pseudo_length':
+                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>login trop long</div>";
+                    break;
+                    
                 default:
+                    echo "<div class='col-lg-4 col-md-8 col-sm-8'>Success</div>";
                     break;
             }
         }
@@ -46,21 +54,19 @@
                             <h2 class='p-3'>Login</h2>
                         </div>
                         <div class='card-body'>
-                            <form action='enregistrement.php' method='post'>
+                            <form action='connexion.php' method='post'>
                                 <div class='mb-4'>
-                                    <label for='username' class='form-label'>Username/Email</label>
-                                    <input type='text' class='form-control' id='username' required='required'>
+                                    <label for='mail' class='form-label'>Username/Email</label>
+                                    <input type='email' class='form-control' id='mail' required='required'>
                                 </div>
                                 <div class='mb-4'>
                                     <label for='password' class='form-label'>Password</label>
                                     <input type='password' class='form-control' id='password' required='required'>
                                 </div>
-
                                 <div class='mb-4'>
                                     <input type='checkbox' class='form-check-input' id='remember'>
                                     <label for='remember'>Remember Me</label>
                                 </div>
-
                                 <div class='d-grid'>
                                     <button type='submit' class='btn main-bg text-light'>Connexion</button>
                                 </div>

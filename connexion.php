@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 /*connexion a la table inscription*/
 $serveur = "localhost";
 $table = "inscription";
@@ -48,6 +49,6 @@ if (!empty($_POST['mail']) && !empty($_POST['password'])) {
         header('Location: enregistrement.php?login_err=already');
     }
 } else {
-    header('Location: index.php');
+    header('Location: enregistrement.php?login_err=no_register');
 }
 ?>

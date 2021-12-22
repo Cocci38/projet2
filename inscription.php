@@ -44,7 +44,7 @@
                                     placeholder='Votre mot de passe' required='required' name='password'>
                             </div>
                             <div class='mb-4'>
-                                <label for='password' class='form-label'>Confirmation mot de passe</label>
+                                <label for='password_retype' class='form-label'>Confirmation mot de passe</label>
                                 <input type='password' class='form-control' id='password_retype'
                                     placeholder='Retapez votre mot de passe' required='required' name='password_retype'>
                             </div>
