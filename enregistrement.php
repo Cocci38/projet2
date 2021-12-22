@@ -51,21 +51,21 @@
         echo "<div class='col-lg-4 col-md-8 col-sm-8'> 
                     <div class='card shadow'>
                         <div class='card-title text-center border-bottom'>
-                            <h2 class='p-3'>Login</h2>
+                            <h2 class='p-3'>Se connecter</h2>
                         </div>
                         <div class='card-body'>
                             <form action='connexion.php' method='post'>
                                 <div class='mb-4'>
-                                    <label for='mail' class='form-label'>Username/Email</label>
+                                    <label for='mail' class='form-label'>Email</label>
                                     <input type='email' class='form-control' id='mail' name='mail' required='required'>
                                 </div>
                                 <div class='mb-4'>
-                                    <label for='password' class='form-label'>Password</label>
+                                    <label for='password' class='form-label'>Mot de passe</label>
                                     <input type='password' class='form-control' id='password' name='password' required='required'>
                                 </div>
                                 <div class='mb-4'>
                                     <input type='checkbox' class='form-check-input' id='remember'>
-                                    <label for='remember'>Remember Me</label>
+                                    <label for='remember'>Se souvenir de moi</label>
                                 </div>
                                 <div class='d-grid'>
                                     <button type='submit' class='btn main-bg text-light'>Connexion</button>
