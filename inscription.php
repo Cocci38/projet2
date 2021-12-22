@@ -44,7 +44,7 @@
                 case 'pseudo_length':
                     echo MSG_NAME_LENGTH;
                     break;
-                case 'success':
+                case 'Success':
                     echo MSG_SUCCESS_ACCOUNT_CREATED;
                     
                 default:
