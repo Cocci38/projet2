@@ -1,4 +1,5 @@
 <?php
+
 //test si un repertoire existe sinon il le crée
 function IsDir_or_CreateIt($path)
 {
@@ -14,6 +15,7 @@ function IsDir_or_CreateIt($path)
 }
 include 'config.php';
 require 'tools.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $baserelative;
@@ -22,27 +24,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($_POST['Titre'])) {
                 $form['Titre'] =  "Titre à definir";
         } else {
-                $form['Titre'] = $_POST['Titre'];
+                $form['Titre'] = htmlspecialchars($_POST['Titre']);
         }
 
         if (empty($_POST['Album'])) {
                 $form['Album'] = "";
         } else {
-                $form['Album'] = $_POST['Album'];
+                $form['Album'] = htmlspecialchars($_POST['Album']);
         }
 
         if (empty($_POST['Artiste'])) {
                 $form['Artiste'] = "";
         } else {
-                $form['Artiste'] = $_POST['Artiste'];
+                $form['Artiste'] = htmlspecialchars($_POST['Artiste']);
         }
 
         if (empty($_POST['Genre'])) {
                 $form['Genre'] = "";
         } else {
-                $form['Genre'] = $_POST['Genre'];
+                $form['Genre'] = htmlspecialchars($_POST['Genre']);
         }
 
+        $form['User'] = $_SESSION['user'];
 
         $extensionsAutorisees_image = array(".jpeg", ".jpg", ".gif", ".png");
         if (empty($_FILES['Cover']['name'])) {
@@ -61,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (!(in_array($extension, $extensionsAutorisees_image))) {
                         die(MSG_PROBLEM_ADD_IMAGE);
                 } else {
-                        $form['Cover'] = 'image/image_' . $next . $extension;
+                        $form['Cover'] = 'image/' . $form['User'] . 'image_' . $next . $extension;
                         rename($_FILES['Cover']['tmp_name'], $repository . $form['Cover']);
                 }
         } else {
@@ -85,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (!(in_array($extension, $extensionsAutorisees_sound))) {
                         die(MSG_PROBLEM_ADD_SOUND);
                 } else {
-                        $form['Sound'] = 'sound/musique_' . $next . $extension;
+                        $form['Sound'] = 'sound/' . $form['User'] . 'musique_' . $next . $extension;
                         rename($_FILES['Sound']['tmp_name'], $repository . $form['Sound']);
                 }
         } else {
@@ -94,8 +97,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
                 $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                 $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+<<<<<<< HEAD
                 $sql = "INSERT INTO Musique(Titre,Album,Artiste,Genre,Cover,Sound)
                         VALUES(:Titre, :Album, :Artiste, :Genre, :Cover, :Sound)";
+=======
+                $sql =
+                "INSERT INTO Musique(Titre,Album,Artiste,Genre,Cover,Sound)
+                         VALUES(:Titre, :Album, :Artiste, :Genre, :Cover, :Sound, :User)";
+>>>>>>> e0cb35dc5bea2713c5de1e139de2ca0f91d50a19
                 $prepare = $codb->prepare($sql);
                 $prepare->bindParam(':Titre', $form['Titre']);
                 $prepare->bindParam(':Album', $form['Album']);
@@ -103,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $prepare->bindParam(':Genre', $form['Genre']);
                 $prepare->bindParam(':Cover', $form['Cover']);
                 $prepare->bindParam(':Sound', $form['Sound']);
+                $prepare->bindParam(':User', $form['User']);
                 $prepare->execute();
         } catch (PDOException $e) {
                 echo "Message d'erreur : " . $e->getMessage() . "<br />";

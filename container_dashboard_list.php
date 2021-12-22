@@ -58,7 +58,7 @@ foreach ($liste as $ligne) {
                               </div>
                            <div class='col'>
                               <p>";
-   echo ($ligne['Cover'] == "") ? $Cover_vide : "<img src='" . $basenameWeb . $ligne['Cover'] . "'>";
+   echo ($ligne['Cover'] == "") ? $Cover_vide : "<img src='" . $ligne['Cover'] . "'>";
 
    echo "             </p>
                            </div>

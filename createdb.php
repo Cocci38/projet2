@@ -15,18 +15,20 @@ try {
     echo "Message d'erreur : [" . $e->getMessage() . "]<br>:";
 }
 
-/*creation d'une table de musiques
+/*Creation d'une table de musiques*/
 try {
     $connectdb = new PDO('mysql:host=' . $servername . ';dbname=' . $namedb, $username, $password);
     $connectdb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "CREATE TABLE Musique(
+    $sql =
+    "CREATE TABLE Musique(
             Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             Titre VarCHAR(100) NOT NULL,
             Album VarCHAR(100) NOT NULL,
             Artiste VarCHAR(100) NOT NULL,
             Genre VarCHAR(30) NOT NULL,
             Cover VarCHAR(255) NOT NULL,
-            Sound Varchar(255) NOT NULL )";
+            Sound Varchar(255) NOT NULL ),
+            User Varchar(100) NOT NULL)";
     $connectdb->exec($sql);
     echo 'Table Musique bien créée !<br />';
 
@@ -39,11 +41,12 @@ try {
     $connectdb = new PDO('mysql:host=' . $servername . ';dbname=' . $namedb, $username, $password);
     $connectdb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql2 = "CREATE TABLE Inscription(
+    $sql2 =
+    "CREATE TABLE Inscription(
             Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(20) NOT NULL,
-            mail VARCHAR (50) NOT NULL UNIQUE,
-            `password` VARCHAR (30) NOT NULL)";
+            name VARCHAR(100) NOT NULL,
+            mail VARCHAR (100) NOT NULL UNIQUE,
+            `password` VARCHAR (100) NOT NULL)";
     $connectdb->exec($sql2);
     echo 'Table Inscription bien créée !<br>';
 
