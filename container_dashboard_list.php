@@ -32,7 +32,7 @@ foreach ($liste as $ligne) {
    }
          echo "   <div class='accordion-item'>
                      <h2 class='accordion-header' id='heading$compteur'>
-                        <button class='$btn_class fw-bolder' style='color:#16ade1' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>" . $ligne['Titre'] . "</button>
+                        <button class='$btn_class fw-bolder' style='color:#1b3954' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$compteur' $btn_expended aria-controls='collapse$compteur'>" . $ligne['Titre'] . "</button>
                      </h2>
                      <div id='collapse$compteur' class='$div_class' aria-labelledby='heading$compteur' data-bs-parent='#accordionExample'>
                         <div class='accordion-body'>
@@ -41,19 +41,20 @@ foreach ($liste as $ligne) {
                                  <div class='col'>
                                     <p style='color:#1b3954'>
                                        Artiste : 
-                                       <strong style='color:#16ade1'>" . $ligne['Artiste'] . "</strong>
+                                       <strong style='color:#1b3954'>" . $ligne['Artiste'] . "</strong>
                                     </p>
                                  </div>
                                  <div class='col'>
                                     <p style='color:#1b3954'>
                                        Album : 
-                                       <strong style='color:#16ade1'>" . $ligne['Album'] . "</strong>
+                                       <strong style='color:#1b3954'>" . $ligne['Album'] . "</strong>
                                     </p>
                                  </div>
                               </div>
                            <div class='row'>
                               <div class='col'>
-                                 <p>
+                                 <p style='color:#1b3954'>
+                                 Genre : 
                                     <strong>" . $ligne['Genre'] . "</strong>
                                  </p>
                               </div>

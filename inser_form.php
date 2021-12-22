@@ -6,22 +6,22 @@
         <div class='row mb-3'>
             <div class='col'>
                 <label for='Titre'>Titre</label>
-                <input name='Titre' type='text' class='form-control' id='Titre' required>
+                <textarea name='Titre' type='text' class='form-control' id='Titre' required></textarea>
             </div>
             <div class='col'>
                 <label for='Artiste'>Artiste</label>
-                <input name='Artiste' type='text' class='form-control' id='Artiste'>
+                <textarea name='Artiste' type='text' class='form-control' id='Artiste'></textarea>
             </div>
         </div>
         <!--nom de l'album et genre-->
         <div class='row mb-3'>
             <div class='col'>
                 <label for='Album'>Album</label>
-                <input name='Album' type='text' class='form-control' id='Album'>
+                <textarea name='Album' type='text' class='form-control' id='Album'></textarea>
             </div>
             <div class='col'>
                 <label for='Genre'>Genre</label>
-                <input name='Genre' type='text' class='form-control' id='Genre'>
+                <textarea name='Genre' type='text' class='form-control' id='Genre'></textarea>
             </div>
         </div>
         <!--fichier sound-->

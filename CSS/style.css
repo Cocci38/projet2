@@ -30,10 +30,10 @@ li{
   }
   
   .navbar-dark .navbar-brand {
-      color: #16ade1;
+    color: #16ade1;
   }
 .navbar-dark .navbar-nav .nav-link.active{
-     color: #FFF;
+    color: #FFF;
 }
 .btn-dark {
     border-color: #1b3954;
@@ -48,7 +48,12 @@ img {
 .img-fluid {
     width: 40px;
 }
-
+.accordion-button:not(.collapsed){
+    background-color: #F1F3F4;
+}
+.accordion-button.collapsed{
+    background-color: #F1F3F4;
+}
 
 @media(max-width:767px){
     
