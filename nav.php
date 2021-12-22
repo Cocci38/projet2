@@ -46,7 +46,7 @@ try {
                         <a class="nav-link"
                             <?php if ($page == 'logout.php') {
                                                 echo 'active';
-                                            } ?>href="logout.php"><?= "UTLISATEUR(. " . $_SESSION['user'] . ")";  ?>logout</a>
+                                            } ?>href="logout.php"><?= "Use =>( " . $_SESSION['user'] . ")";  ?>logout</a>
                     </li>
                 </ul>
             </div>
