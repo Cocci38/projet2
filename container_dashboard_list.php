@@ -81,6 +81,7 @@ foreach ($liste as $ligne) {
                   </div>
                </div>
          </div>
+
 ";
 }
 
