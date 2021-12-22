@@ -3,7 +3,7 @@
 include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $Webdir = strstr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME'], false));
+        $Webdir = stristr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME'], true));
         $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $Webdir;
 
 

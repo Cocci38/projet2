@@ -15,25 +15,21 @@ function IsDir_or_CreateIt($path)
 }
 
 $file = $_SERVER['SCRIPT_NAME'];
-//$file2 = basename($_SERVER['SCRIPT_FILENAME']);
+$file2 = basename($_SERVER['SCRIPT_FILENAME']);
 
 $path = 'sound';
 echo "[SCRIPT_NAME] => " . $file . "<br>";
-$baserelive = strstr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME'], true));
-
-echo "base relative: " . $baserelative;
-
-//$valeur = substr($file, $file2);
-//echo "SCRIPT_NAME" . $file . "<Br>";
-echo " Script_file_name-->" . basename($_SERVER['SCRIPT_FILENAME']) . "<Br>";
-echo " Document_name-->" . $_SERVER['DOCUMENT_ROOT'] . "<Br>";
-echo " Server_name-->" . $_SERVER['SERVER_NAME'] . "<Br>";
-//echo "Substring->" . $valeur;
+$WebWay = strstr($file, $file2, true);
+$local = $_SERVER['DOCUMENT_ROOT'];
+echo $local . $WebWay . $path;
+echo " basename de SCRIPT_FILENAME -->" . basename($_SERVER['SCRIPT_FILENAME']) . "<br>";
+echo  "strstrf1 f2 true" . $WebWay . "<br>";
+echo "stristrf1 f2 true" . stristr($file, $file2, true) . "<br>";
+echo "stristrf1 f2 false" . stristr($file, $file2, true) . "<br>";
 
 
-echo "<br>";
 
 
+$baserelive = strstr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME']), true);
 echo IsDir_or_CreateIt($path);
-echo pathinfo("/testweb/test.txt", PATHINFO_EXTENSION);
-print_r($_SERVER);
+phpinfo();
