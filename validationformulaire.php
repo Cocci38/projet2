@@ -18,7 +18,6 @@ if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['password']) 
     $mail = htmlspecialchars($_POST["mail"]);
     $password = htmlspecialchars($_POST['password']);
     $password_retype = htmlspecialchars($_POST['password_retype']);
-
     $mail = strtolower($mail);
 
     $check = $bdd->prepare("SELECT name, mail, password FROM $table WHERE mail = ?");
@@ -43,11 +42,21 @@ if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['password']) 
                         } catch (PDOException $e) {
                             echo 'Erreur : ' . $e->getMessage();
                         }
-                    } else header('Loaction: inscription.php?reg_err=password');
-                } else header("Location: inscription.php?reg_err=mail");
-            } else header("Location: inscription.php?reg_err=mail_length");
-        } else header("Location : inscription.php?reg_err=pseudo_length");
-    } else header('Location: inscription.php?reg_err=already');
+                    } else {
+                        header('Location: inscription.php?reg_err=password');
+                    }
+                } else {
+                    header("Location: inscription.php?reg_err=mail");
+                }
+            } else {
+                header("Location: inscription.php?reg_err=mail_length");
+            }
+        } else {
+            header("Location : inscription.php?reg_err=pseudo_length");
+        }
+    } else {
+        header('Location: inscription.php?reg_err=already');
+    }
 }
 /*
 if (

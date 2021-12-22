@@ -14,8 +14,6 @@ function IsDir_or_CreateIt($path)
     }
 }
 
-$file = $_SERVER['SCRIPT_NAME'];
-$file2 = basename($_SERVER['SCRIPT_FILENAME']);
 
 $path = 'sound';
 echo "[SCRIPT_NAME] => " . $file . "<br>";
@@ -26,10 +24,9 @@ echo " basename de SCRIPT_FILENAME -->" . basename($_SERVER['SCRIPT_FILENAME']) 
 echo  "strstrf1 f2 true" . $WebWay . "<br>";
 echo "stristrf1 f2 true" . stristr($file, $file2, true) . "<br>";
 echo "stristrf1 f2 false" . stristr($file, $file2, true) . "<br>";
+$rep_sound = "sound/";
+$rep_image = "image/";
 
-
-
-
-$baserelive = strstr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME']), true);
-echo IsDir_or_CreateIt($path);
-phpinfo();
+$local_sound = $local . $WebWay . $rep_sound;
+echo $local_sound;
+echo IsDir_or_CreateIt($local_sound);
