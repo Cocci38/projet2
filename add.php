@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                 $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $sql = "INSERT INTO Musique(Titre,Album,Artiste,Genre,Cover,Sound)
-                         VALUES(:Titre, :Album, :Artiste, :Genre, :Cover, :Sound)";
+                        VALUES(:Titre, :Album, :Artiste, :Genre, :Cover, :Sound)";
                 $prepare = $codb->prepare($sql);
                 $prepare->bindParam(':Titre', $form['Titre']);
                 $prepare->bindParam(':Album', $form['Album']);
