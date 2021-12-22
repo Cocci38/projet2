@@ -3,9 +3,7 @@
 include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $Webdir = stristr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME'], true));
-        $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $Webdir;
-
+                
 
         if (empty($_POST['Titre'])) {
                 $form['Titre'] =  "Titre à definir";
@@ -38,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $form['Cover'] = "";
         } elseif (is_uploaded_file($_FILES['Cover']['tmp_name'])) {
                 // test si le repertoire de destination exist sinon il le crée
-                IsDir_or_CreateIt($Webdir . 'image');
+                IsDir_or_CreateIt($rep_image);
                 // recupération de l'extension du fichier
                 $next = select_Max_id() + 1;
                 // autrement dit tout ce qu'il y a après le dernier point (inclus)
@@ -50,8 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (!(in_array($extension, $extensionsAutorisees_image))) {
                         die(MSG_PROBLEM_ADD_IMAGE);
                 } else {
-                        $form['Cover'] = 'image/' . $form['User'] . '_image_' . $next . $extension;
-                        rename($_FILES['Cover']['tmp_name'], $repository . $form['Cover']);
+                        $form['Cover'] = "/" . $form['User'] . '_image_' . $next . $extension;
+                        rename($_FILES['Cover']['tmp_name'], $rep_image . $form['Cover']);
                 }
         } else {
                 $form['Cover'] = "";
@@ -62,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $form['Sound'] = '';
         } elseif (is_uploaded_file($_FILES['Sound']['tmp_name'])) {
                 //test si le repertoire existe
-                IsDir_or_CreateIt($Webdir . 'sound');
+                IsDir_or_CreateIt($rep_sound);
                 // recupération de l'extension du fichier
                 $next = select_Max_id() + 1;
                 // autrement dit tout ce qu'il y a après le dernier point (inclus)
@@ -74,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (!(in_array($extension, $extensionsAutorisees_sound))) {
                         die(MSG_PROBLEM_ADD_SOUND);
                 } else {
-                        $form['Sound'] = 'sound/' . $form['User'] . '_musique_' . $next . $extension;
-                        rename($_FILES['Sound']['tmp_name'], $repository . $form['Sound']);
+                        $form['Sound'] = '/' . $form['User'] . '_musique_' . $next . $extension;
+                        rename($_FILES['Sound']['tmp_name'], $rep_sound . $form['Sound']);
                 }
         } else {
                 $form['Sound'] = "";

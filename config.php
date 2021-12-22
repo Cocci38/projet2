@@ -11,8 +11,8 @@ $file2 = basename($_SERVER['SCRIPT_FILENAME']);
 $WebWay = strstr($file, $file2, true);
 
 //repertoire à créer
-$rep_sound = $local . $WebWay . "sound/";
-$rep_image = $local . $WebWay . "image/";
+$rep_sound = $local . $WebWay . "sound";
+$rep_image = $local . $WebWay . "image";
 
 $local . $WebWay . $rep_sound;
 $username = "root";
