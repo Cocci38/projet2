@@ -1,6 +1,17 @@
 <?php
 include "config.php";
-include "tools.php;"
+function IsDir_or_CreateIt($path)
+{
+    if (is_dir($path)) {
+        return true;
+    } else {
+        if (mkdir($path)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 
 /*creation de la BD*/
 try {
@@ -22,14 +33,14 @@ try {
     $connectdb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql =
     "CREATE TABLE Musique(
-            Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            Titre VarCHAR(100) NOT NULL,
-            Album VarCHAR(100) NOT NULL,
-            Artiste VarCHAR(100) NOT NULL,
-            Genre VarCHAR(30) NOT NULL,
-            Cover VarCHAR(255) NOT NULL,
-            Sound Varchar(255) NOT NULL ),
-            User Varchar(100) NOT NULL)";
+            `Id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT ,
+            `Titre` VarCHAR(100) NOT NULL,
+            `Album` VarCHAR(100) NOT NULL,
+            `Artiste` VarCHAR(100) NOT NULL,
+            `Genre` VarCHAR(30) NOT NULL,
+            `Cover` VarCHAR(255) NOT NULL,
+            `Sound` Varchar(255) NOT NULL ,
+            `User` Varchar(100) NOT NULL)";
     $connectdb->exec($sql);
     echo 'Table Musique bien créée !<br />';
 
@@ -44,9 +55,9 @@ try {
 
     $sql2 =
     "CREATE TABLE Inscription(
-            Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(100) NOT NULL,
-            mail VARCHAR (100) NOT NULL UNIQUE,
+            `Id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT ,
+            `name` VARCHAR(100) NOT NULL,
+            `mail` VARCHAR (100) NOT NULL UNIQUE,
             `password` VARCHAR (100) NOT NULL)";
     $connectdb->exec($sql2);
     echo 'Table Inscription bien créée !<br>';
