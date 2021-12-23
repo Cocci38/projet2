@@ -38,7 +38,7 @@
                     echo MSG_MAIL_LENGTH;
                     break;
                 case 'already':
-                    echo MSG_ALREADY;
+                    echo MSG_NO_REGISTER;
                     break;
                 case 'pseudo_length':
                     echo MSG_NAME_LENGTH;

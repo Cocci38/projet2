@@ -96,17 +96,12 @@ define("MSG_PASSWORD_INVALID","<div class='m-4'>
  </div></div>");
 define("MSG_MAIL_LENGTH","<div class='m-4'>
  <div class='alert alert-danger alert-dismissible fade show'>
- <strong><center><h2>L'adresse email est trop longue'</h2></center></strong>
- <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
- </div></div>");
-define("MSG_ALREADY","<div class='m-4'>
- <div class='alert alert-danger alert-dismissible fade show'>
- <strong><center><h2>Le compte existe déjà'</h2></center></strong>
+ <strong><center><h2>L'adresse email est trop longue</h2></center></strong>
  <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
  </div></div>");
 define("MSG_NO_REGISTER","<div class='m-4'>
  <div class='alert alert-danger alert-dismissible fade show'>
- <strong><center><h2>Le compte n'existe pas'</h2></center></strong>
+ <strong><center><h2>Le compte n'existe pas</h2></center></strong>
  <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
  </div></div>");
 
@@ -125,6 +120,11 @@ define("MSG_NAME_LENGTH","<div class='m-4'>
 define("MSG_PASSWORD_ALREADY","<div class='m-4'>
  <div class='alert alert-danger alert-dismissible fade show'>
  <strong><center><h2>Le mot de passe existe déjà</h2></center></strong>
+ <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+ </div></div>");
+define("MSG_ALREADY","<div class='m-4'>
+ <div class='alert alert-danger alert-dismissible fade show'>
+ <strong><center><h2>Le compte existe déjà</h2></center></strong>
  <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
  </div></div>");
 
