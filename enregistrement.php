@@ -12,7 +12,7 @@
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="CSS\style.css">
-    <title>Document</title>
+    <title>Se connecter</title>
 </head>
 
 <body class='main-bg'>
