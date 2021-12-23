@@ -80,9 +80,10 @@ function select_by_Id($id)
 
 
     try {
+        $user = $_SESSION['user'];
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM $table WHERE id=$id";
+        $sql = "SELECT * FROM $table WHERE id=$id and user='$user'";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);

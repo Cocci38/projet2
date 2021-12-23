@@ -90,9 +90,8 @@ if (!(empty($_POST['Id']))) {
                 //
                 $fichier = $rep_image . selectElmentby('Cover', $idTochange);
                 echo $_FILES['Cover']['tmp_name'] . "||" . selectElmentby('Cover', $idTochange);
-                echo $fichier;
                 rename($_FILES['Cover']['tmp_name'], "image/" . $fichier);
-                echo "ici";
+                
             } else {
                 // on modifie le nom dans la base de donnee pui on renommme le fichier
 
@@ -106,7 +105,6 @@ if (!(empty($_POST['Id']))) {
                     $prepare->bindParam(':Id', $idTochange);
                     $prepare->execute();
                     rename($_FILES['Cover']['tmp_name'], "image/" . $objet);
-                    echo 'labas';
                 } catch (PDOException $e) {
                     die(MSG_PROBLEM_ADD_IMAGE);
                 }
