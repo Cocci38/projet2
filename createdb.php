@@ -1,5 +1,6 @@
 <?php
 include "config.php";
+include "tools.php;"
 
 /*creation de la BD*/
 try {
@@ -53,3 +54,5 @@ try {
 } catch (PDOException $e){
     echo 'Erreur : '.$e->getMessage();
 }
+IsDir_or_CreateIt('sound');
+IsDir_or_CreateIt('image');
