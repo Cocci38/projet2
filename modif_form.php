@@ -70,10 +70,10 @@ if (!isset($_SESSION['user'])) {
                              <input name='Sound' id='Sound' type='file' value=''>
                                 <audio title='" . $musicmodif['Titre'] . "' preload='auto' controls loop>";
         if (strstr($musicmodif['Sound'], 'mp3')) {
-            echo "<source src='" . "sound" . $musicmodif['Sound'] . "' type='audio/mp3'>";
+            echo "<source src='sound" . $musicmodif['Sound'] . "' type='audio/mp3'>";
         }
         if (strstr($musicmodif['Sound'], 'ogg')) {
-            echo "<source src='" . "sound" . $musicmodif['Sound'] . "' type='audio/ogg'>";
+            echo "<source src='sound" . $musicmodif['Sound'] . "' type='audio/ogg'>";
         }
         echo
         " 
@@ -86,9 +86,9 @@ if (!isset($_SESSION['user'])) {
                         <div class='image-upload'>
                             <label for='Cover'>";
         if (empty($musicmodif['Cover'])) {
-            echo "<img src='img\sound2.png' width='100px' />";
+            echo "<img src='img/sound2.png' width='100px' />";
         } else {
-            echo "<img src='" . "image" . $musicmodif['Cover'] . "' width='100px'>";
+            echo "<img src='image/" . $musicmodif['Cover'] . "' width='100px'>";
         }
 
         echo "              </label>

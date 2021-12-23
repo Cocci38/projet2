@@ -45,7 +45,7 @@ function selectElmentby($element, $id)
         $User = $_SESSION['user'];
         $codb = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT $element FROM $table Where Id=$id, User=$User";
+        $sql = "SELECT $element FROM $table Where Id=$id";
         $prepare = $codb->prepare($sql);
         $prepare->execute();
         $resultat = $prepare->fetch(PDO::FETCH_ASSOC);

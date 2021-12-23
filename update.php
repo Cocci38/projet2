@@ -5,7 +5,6 @@ if (!(empty($_POST['Id']))) {
 
     $idTochange = $_POST['Id'];
     $Webdir = strstr($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_NAME'], true));
-    echo  "{" . $Webdir . "}";
     $repository = $_SERVER["DOCUMENT_ROOT"] . "/" . $Webdir;
     
     /**modification sur le titre */
@@ -72,8 +71,10 @@ if (!(empty($_POST['Id']))) {
 
     // modification du Cover
     //--> pb si on change l'extension parmis celle autorisé 
-    // difference
-    $extensionsAutorisees_image = array("jpg", "gif", "png");  
+    // difference COVER+ IMAGE
+    $User = $_SESSION['user'];
+
+    $extensionsAutorisees_image = array("jpg", "gif", "png", "jpeg");  
     if ((isset($_FILES['Cover']['name']))
         && (!(empty($_FILES['Cover']['name'])))
         && (is_uploaded_file($_FILES['Cover']['tmp_name']))
@@ -84,13 +85,17 @@ if (!(empty($_POST['Id']))) {
         } else {
             //on est rentree et le fichier est au bon format --> on ecrase le fichier existant
             //tester si les extensions sont identiques sinon renommé le fichier enregistré dans la bd avant 
-            // a faire
+            // a faire ici on parl de chemin absolue
             if (strcmp(pathinfo((selectElmentby('Cover', $idTochange)), PATHINFO_EXTENSION), pathinfo($_FILES['Cover']['name'], PATHINFO_EXTENSION))) {
-                rename($_FILES['Cover']['tmp_name'], selectElmentby('Cover', $idTochange));
+                //
+                $fichier = $rep_image . selectElmentby('Cover', $idTochange);
+                echo $_FILES['Cover']['tmp_name'] . "||" . selectElmentby('Cover', $idTochange);
+                echo $fichier;
+                rename($_FILES['Cover']['tmp_name'], $fichier);
             } else {
                 // on modifie le nom dans la base de donnee pui on renommme le fichier
-                $objet = "image/image_" . $idTochange . "." . $extension;
-                try {
+                $objet = "/" . $User . "_image_" . $idTochange . "." . $extension;
+                try {//on modifie la bae le fichier doit avoir l(arborescence racine)
                     $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                     $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $sql = "UPDATE Musique SET Cover=:Cover WHERE Id=:Id";
@@ -99,18 +104,19 @@ if (!(empty($_POST['Id']))) {
                     $prepare->bindParam(':Id', $idTochange);
                     $prepare->execute();
                 } catch (PDOException $e) {
-                    echo 'cas de la BD image';
                     die(MSG_PROBLEM_ADD_IMAGE);
                 }
                 rename($_FILES['Cover']['tmp_name'], $objet);
             }
         }
     } else {
-        die(MSG_PROBLEM_UP_IMAGE);
+        die(MSG_WARNING_UP_RECORD);
     }
 
     //modfication sur le son
+    //tout a revoir->
     $extensionsAutorisees_sound = array("ogg", "mp3");
+
     if ((isset($_FILES['Sound']['name']))
         && (!(empty($_FILES['Sound']['name'])))
         && (is_uploaded_file($_FILES['Sound']['tmp_name']))
@@ -118,9 +124,9 @@ if (!(empty($_POST['Id']))) {
         echo pathinfo(selectElmentby('Sound', $idTochange), PATHINFO_EXTENSION) . "||" . pathinfo($_FILES['Sound']['name'], PATHINFO_EXTENSION);
         $extension = pathinfo($_FILES['Sound']['name'], PATHINFO_EXTENSION);
         if (!(in_array($extension, $extensionsAutorisees_sound))) {
-            echo "pb";
+            die(MSG_PROBLEM_UP_SOUND_ELEMENT);
         } else {
-            //on est rentree et le fichier est au bon format --> on ecrase le fichier existant
+            //on est rentre et le fichier est au bon format --> on ecrase le fichier existant
             //tester si les extensions sont identiques sinon renommé le fichier enregistré dans la bd avant 
             // a faire
 
@@ -133,7 +139,7 @@ if (!(empty($_POST['Id']))) {
         
             } else {
                 // on modifie le nom dans la base de donnee pui on renommme le fichier
-                $objet = "sound/sound_" . $idTochange . "." . $extension;
+                $objet = "/" . $User . "_sound_" . $idTochange . "." . $extension;
                 try {
                     $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                     $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -144,17 +150,14 @@ if (!(empty($_POST['Id']))) {
                     $prepare->execute();
                 } catch (PDOException $e) {
                     echo 'cas IMAGE DB';
-                    die(MSG_PROBLEM_UP_IMAGE);
+                    die(MSG_PROBLEM_UP_SOUND);
                 }
-                echo "{" . selectElmentby('Sound', $_idTochange) . "}";
                 rename($_FILES['Sound']['tmp_name'], $objet);
             }
         }
-    } /*else {
-
-        echo 'PAS de changement->Sound';
-        die(MSG_PROBLEM_UP_SOUND);
-    }*/
+    } else {
+        die(MSG_WARNING_UP_RECORD);
+    }
      
     /*//    modification sur le sound
     if ((isset($_FILES['Sound']['name']))

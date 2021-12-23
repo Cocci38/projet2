@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $form['Cover'] = "";
         }
 
-        $extensionsAutorisees_sound = array(".ogg", ".mp3", ".mp4", ".m4a");
+        $extensionsAutorisees_sound = array(".ogg", ".mp3", ".m4a");
         if (empty($_FILES['Sound']['name'])) {
                 $form['Sound'] = '';
         } elseif (is_uploaded_file($_FILES['Sound']['tmp_name'])) {
@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (!(in_array($extension, $extensionsAutorisees_sound))) {
                         die(MSG_PROBLEM_ADD_SOUND);
                 } else {
+
                         $form['Sound'] = '/' . $form['User'] . '_musique_' . $next . $extension;
                         rename($_FILES['Sound']['tmp_name'], $rep_sound . $form['Sound']);
                 }

@@ -11,6 +11,11 @@ define("MSG_WARNING_MUSIC_NOT_SELECTIONNED", "<div class='m-4'>
 <strong><center><h2>Veuillez sélectionner une musique dans la liste</h2></center></strong>
 <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
 </div></div>");
+define("MSG_WARNING_UP_RECORD", "<div class='m-4'>
+<div class='alert alert-success alert-dismissible fade show'>
+<strong><center><h2>Aucun changement enregistré</h2></center></strong>
+<button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+</div></div>");
 define("MSG_SUCCESS_ADD_MUSIC", "<div class='m-4'>
  <div class='alert alert-success alert-dismissible fade show'>
 <strong><center><h2>Musique ajoutée</h2></center></strong>
