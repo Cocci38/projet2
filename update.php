@@ -89,7 +89,7 @@ if (!(empty($_POST['Id']))) {
             if (strcmp(pathinfo((selectElmentby('Cover', $idTochange)), PATHINFO_EXTENSION), pathinfo($_FILES['Cover']['name'], PATHINFO_EXTENSION))) {
                 //
                 $fichier = $rep_image . selectElmentby('Cover', $idTochange);
-                echo $_FILES['Cover']['tmp_name'] . "||" . selectElmentby('Cover', $idTochange);
+                //echo $_FILES['Cover']['tmp_name'] . "||" . selectElmentby('Cover', $idTochange);
                 rename($_FILES['Cover']['tmp_name'], "image/" . $fichier);
                 
             } else {
