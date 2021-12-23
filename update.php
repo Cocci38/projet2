@@ -91,11 +91,13 @@ if (!(empty($_POST['Id']))) {
                 $fichier = $rep_image . selectElmentby('Cover', $idTochange);
                 echo $_FILES['Cover']['tmp_name'] . "||" . selectElmentby('Cover', $idTochange);
                 echo $fichier;
-                rename($_FILES['Cover']['tmp_name'], $fichier);
+                rename($_FILES['Cover']['tmp_name'], "image/" . $fichier);
+                echo "ici";
             } else {
                 // on modifie le nom dans la base de donnee pui on renommme le fichier
-                $objet = "/" . $User . "_image_" . $idTochange . "." . $extension;
-                try {//on modifie la bae le fichier doit avoir l(arborescence racine)
+
+                try { //on modifie la bae le fichier doit avoir l(arborescence racine)
+                    $objet =  $User . "_image_" . $idTochange . "." . $extension;
                     $codb = new PDO("mysql:host=$servername;dbname=$namedb", $username, $password);
                     $codb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $sql = "UPDATE Musique SET Cover=:Cover WHERE Id=:Id";
@@ -103,15 +105,14 @@ if (!(empty($_POST['Id']))) {
                     $prepare->bindParam(':Cover', $objet);
                     $prepare->bindParam(':Id', $idTochange);
                     $prepare->execute();
+                    rename($_FILES['Cover']['tmp_name'], "image/" . $objet);
+                    echo 'labas';
                 } catch (PDOException $e) {
                     die(MSG_PROBLEM_ADD_IMAGE);
                 }
-                rename($_FILES['Cover']['tmp_name'], $objet);
             }
         }
-    } else {
-        die(MSG_WARNING_UP_RECORD);
-    }
+    } 
 
     //modfication sur le son
     //tout a revoir->
@@ -135,7 +136,7 @@ if (!(empty($_POST['Id']))) {
                 //l'extension est la meme
                 // on recris sur le fichier
                 //*****************************************verifier que le rename ecrase bien le fichier */
-                rename($_FILES['Sound']['tmp_name'], selectElmentby('Sound', $idTochange));
+                rename($_FILES['Sound']['tmp_name'], "sound/" . selectElmentby('Sound', $idTochange));
         
             } else {
                 // on modifie le nom dans la base de donnee pui on renommme le fichier
@@ -152,13 +153,10 @@ if (!(empty($_POST['Id']))) {
                     echo 'cas IMAGE DB';
                     die(MSG_PROBLEM_UP_SOUND);
                 }
-                rename($_FILES['Sound']['tmp_name'], $objet);
+                rename($_FILES['Sound']['tmp_name'], "sound/" . $objet);
             }
         }
-    } else {
-        die(MSG_WARNING_UP_RECORD);
     }
-     
     /*//    modification sur le sound
     if ((isset($_FILES['Sound']['name']))
         && (!(empty($_FILES['Sound']['name'])))
