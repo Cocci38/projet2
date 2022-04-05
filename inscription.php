@@ -39,7 +39,7 @@
                     echo MSG_MAIL_LENGTH;
                     break;
                 case 'already':
-                    echo MSG_PASSWORD_ALREADY;
+                    echo MSG_MAIL_ALREADY;
                     break;
                 case 'pseudo_length':
                     echo MSG_NAME_LENGTH;

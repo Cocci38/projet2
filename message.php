@@ -117,9 +117,9 @@ define("MSG_NAME_LENGTH","<div class='m-4'>
  <strong><center><h2>Le nom est trop long</h2></center></strong>
  <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
  </div></div>");
-define("MSG_PASSWORD_ALREADY","<div class='m-4'>
+define("MSG_MAIL_ALREADY","<div class='m-4'>
  <div class='alert alert-danger alert-dismissible fade show'>
- <strong><center><h2>Le mot de passe existe déjà</h2></center></strong>
+ <strong><center><h2>L'adresse mail existe déjà</h2></center></strong>
  <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
  </div></div>");
 define("MSG_ALREADY","<div class='m-4'>
